@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
 
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterUserComponent } from './User/DockerWizard/register-user/register-user.component';
+import { MenuComponent } from './User/DockerWizard/menu/menu.component';
+import { BodyDockerWizardComponent } from './User/DockerWizard/body-docker-wizard/body-docker-wizard.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ResetPasswordComponent,
     HomeComponent,
+    RegisterUserComponent,
+    MenuComponent,
+    BodyDockerWizardComponent,
+    
   
 
   ],
@@ -27,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

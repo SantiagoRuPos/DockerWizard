@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+      <div class="text-center mb-4">
+        <h1>DockerWizard</h1>
+        <h4>Inicio de Sesión</h4>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="Nombre_Usuario">Usuario</label>
+          <input type="text" id="Nombre_Usuario" class="form-control" formControlName="Nombre_Usuario" pattern="[a-zA-Z0-9]+" required>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Contraseña</label>
+          <input type="password" id="inputPassword" class="form-control" formControlName="Password_Usuario" pattern="[a-zA-Z0-9]+" minlength="4" maxlength="8" required>
+          <small class="form-text text-muted" *ngIf="loginForm.get('Password_Usuario')?.errors?.['pattern'] || loginForm.get('Password_Usuario')?.errors?.['minlength'] || loginForm.get('Password_Usuario')?.errors?.['maxlength']">
+            <span *ngIf="loginForm.get('Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
+            <span *ngIf="loginForm.get('Password_Usuario')?.errors?.['minlength'] || loginForm.get('Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
+          </small>
+          <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+        </div>
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
