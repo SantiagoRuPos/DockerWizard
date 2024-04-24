@@ -34,7 +34,7 @@ export class LoginComponent {
     const credentials = this.loginForm.value;
     this.ServiceLoginService.login(credentials).subscribe(success => {
       if (success) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/Home']);
       } else {
         Swal.fire({
           icon: 'error',

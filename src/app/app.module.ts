@@ -17,6 +17,8 @@ import { MenuComponent } from './User/DockerWizard/menu/menu.component';
 import { BodyDockerWizardComponent } from './User/DockerWizard/body-docker-wizard/body-docker-wizard.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +38,9 @@ import { BodyDockerWizardComponent } from './User/DockerWizard/body-docker-wizar
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

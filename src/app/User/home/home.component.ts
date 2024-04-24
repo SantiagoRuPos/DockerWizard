@@ -12,7 +12,7 @@ import {ServiceLoginService} from '../../Services/service-login.service';
 export class HomeComponent {
   constructor(private authService: ServiceLoginService,private router: Router) { }
   navegarAComponente() {
-    this.router.navigate(['/Menu-DockerWizard']);
+    this.router.navigate(['/AdminDockerwizard']); 
   }
   logout(): void {
     this.authService.logout(); // Llama al método de logout del servicio de autenticación
