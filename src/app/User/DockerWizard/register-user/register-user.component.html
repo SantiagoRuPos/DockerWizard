@@ -3,7 +3,57 @@
 </div>
 <div class="container">
 <h1>Registro de usuario</h1>
-<div>
-    
-</div>
+<div class="container">
+    <h1>Registro de usuario DockerWizard</h1>
+    <form [formGroup]="registroForm" (ngSubmit)="submitForm()">
+        <div>
+            <label for="Tipo_Identificacion_Usuario">Tipo de Identificación </label>
+            <select class="form-select" multiple aria-label="Multiple select example" formControlName="Tipo_Identificacion_Usuario">
+              <option *ngFor="let tipo of  Tipo_Identificacion" [value]="tipo" required>{{ tipo }} </option>
+            </select>
+          </div>
+        <div>
+          <label for="Numero_Identificacion_Usuario">Numero de Identificación</label>
+          <input type="number" formControlName="Numero_Identificacion_Usuario" placeholder="123456" pattern="[0-9]+">
+        </div>
+        <div>
+          <label for="Nombre_Completo_Usuario">Nombre Completo</label>
+          <input type="text" formControlName="Nombre_Completo_Usuario" placeholder="Nombre y Apellidos"  pattern="[a-zA-Z0-9]+" required>
+        </div>
+        <div>
+          <label for="Correo_Institucional_Usuario">Correo Institucional</label>
+          <input type="text" formControlName="Correo_Institucional_Usuario" placeholder="usuario@admon.uniajc.edu.co">
+        </div>
+        <div>
+          <label for="Numero_Contacto">Numero de Contacto</label>
+          <input type="number" formControlName="Numero_Contacto" placeholder="312 5555555" pattern="[0-9]+">
+        </div>
+        <div>
+          <label for="Nombre_Usuario">Nombre de Usuario</label>
+          <input type="text" formControlName="Nombre_Usuario" placeholder="Usuario">
+        </div>
+        <div>
+          <label for="Password_Usuario">Contraseña</label>
+          <input type="password" formControlName="Password_Usuario" placeholder="Contraseña">
+          <small class="form-text text-muted" *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern'] || registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">
+            <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
+            <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
+          </small>
+        </div>
+        <div>
+          <label for="Confirmar_Password_Usuario">Confirmar Contraseña</label>
+          <input type="password" formControlName="Confirmar_Password_Usuario" placeholder="Contraseña">
+          <small class="form-text text-muted" *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">
+            <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
+            <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
+          </small>
+        </div>
+        <div>
+          <label for="Nombre_Usuario_Cygnus">Nombre de Usuario Cygnus</label>
+          <input type="text" formControlName="Nombre_Usuario_Cygnus" placeholder="Usuario">
+        </div>
+        <button type="submit" [disabled]="!registroForm.invalid">Registrar</button>
+      </form>
+  </div>
+  
 </div>
