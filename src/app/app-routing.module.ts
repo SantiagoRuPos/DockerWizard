@@ -11,6 +11,7 @@ import { HomeComponent } from './User/home/home.component';
 import {MenuComponent} from './User/DockerWizard/menu/menu.component';
 import {BodyDockerWizardComponent} from './User/DockerWizard/body-docker-wizard/body-docker-wizard.component';
 import { RegisterUserComponent } from "./User/DockerWizard/register-user/register-user.component";
+import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   { path: 'AdminDockerwizard', component: MenuComponent, canActivate: [AuthGuard] },
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
+  { path: 'Buscar-Usuarios', component:ListUsersComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

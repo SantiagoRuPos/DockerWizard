@@ -1,0 +1,28 @@
+<!--<div>
+  <app-menu></app-menu>
+</div>!-->
+<div>
+  <h2>Lista de Usuarios</h2>
+  <div class="form-group">
+    <label for="Nombre_Usuario">Nombre de Usuario:</label>
+    <input type="text" class="form-control" id="Nombre_Usuario" [(ngModel)]="Nombre_Usuario">
+  </div>
+  <button class="btn btn-primary" (click)="loadUsers()">Buscar</button>
+</div>
+
+<div *ngIf="users">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre de Usuario</th>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Correo Institucional</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.Nombre_Usuario }}</td>
+        <td>{{ user.Nombre_Completo_Usuario }}</td>
+        <td>{{ user.Correo_Institucional_Usuario }}</td>
+      </tr>
+    </tbody>

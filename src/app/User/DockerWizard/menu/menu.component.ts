@@ -13,4 +13,7 @@ export class MenuComponent {
   navegarAComponente() {
     this.router.navigate(['/registro-nuevo-usuario']);
   }
+  BuscarUsuarios(){
+    this.router.navigate(['/Buscar-Usuarios']);
+  }
 }

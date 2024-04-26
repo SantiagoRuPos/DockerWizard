@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 export class ServiceLoginService {
   private apiUrl = 'http://localhost:3000'; // Cambia esto por la URL de tu backend
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
   }
   listarImagenesDocker(): Observable<any> {
@@ -55,7 +55,17 @@ export class ServiceLoginService {
       localStorage.removeItem('accessToken');
     }
   }
+
   registerUser(newUser:any): Observable<any> {
     return  this.http.post<any>(`${this.apiUrl}/register-user`, newUser)
+  }
+
+  GetUser(Nombre_Usuario?: string): Observable<any>{
+    let url = `${this.apiUrl}/ListarUsuario`;
+    if (Nombre_Usuario) {
+      url += `?Nombre_Usuario=${Nombre_Usuario}`;
+    }
+    return this.http.get<any>(url);
+
   }
 }
