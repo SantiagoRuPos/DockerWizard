@@ -39,3 +39,6 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .invalid-field {
+    border-color: #ff0000; /* Color rojo */
+  }

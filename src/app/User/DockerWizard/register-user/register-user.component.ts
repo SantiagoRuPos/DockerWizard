@@ -10,49 +10,95 @@ import { Toast } from 'ngx-toastr';
   templateUrl: './register-user.component.html',
   styleUrl: './register-user.component.css'
 })
-export class RegisterUserComponent{
+export class RegisterUserComponent {
   registroForm: FormGroup;
   Tipo_Identificacion = ['Cédula de Ciudadanía', 'Tarjeta de Identidad', 'Pasaporte', 'Cédula Extranjera'];
-  error = '';
-  constructor(private formBuilder: FormBuilder,private ServiceLoginService: ServiceLoginService) { 
+
+  constructor(private formBuilder: FormBuilder, private ServiceLoginService: ServiceLoginService) {
     this.registroForm = this.formBuilder.group({
-      Tipo_Identificacion_Usuario: ['',[Validators.required]],
-      Numero_Identificacion_Usuario: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+      Tipo_Identificacion_Usuario: ['', Validators.required],
+      Numero_Identificacion_Usuario: ['', Validators.required],
       Nombre_Completo_Usuario: ['', Validators.required],
-      Correo_Institucional_Usuario: ['', [Validators.required, Validators.email]],
-      Numero_Contacto: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+      Correo_Institucional_Usuario: ['', Validators.required],
+      Numero_Contacto: ['', Validators.required],
       Nombre_Usuario: ['', Validators.required],
-      Password_Usuario: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      Password_Usuario: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4), Validators.maxLength(8)]],
       Confirmar_Password_Usuario: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       Nombre_Usuario_Cygnus: ['', Validators.required]
-    });
+    }, { validators: this.checkPasswords });
   }
 
+   checkPasswords(group: FormGroup | null) {
+    if (!group) return null; // Comprobación para evitar errores si el grupo es nulo
+    const pass = group.get('Password_Usuario')?.value;
+    const confirmPass = group.get('Confirmar_Password_Usuario')?.value;
 
-  
+    if (pass !== confirmPass) {
+      group.get('Confirmar_Password_Usuario')?.setErrors({ notSame: true });
+    } else {
+      group.get('Confirmar_Password_Usuario')?.setErrors(null);
+    }
+
+    return pass === confirmPass ? null : { notSame: true };
+  }
 
   submitForm() {
-    console.log("todo fine");
     if (this.registroForm.valid) {
-      // Aquí puedes enviar los datos del formulario al servidor
-      console.log(this.registroForm.value);
-      alert('Formulario enviado correctamente');
-    } else {
-      
-      Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
+      // Enviar datos al servicio para registrar al usuario
+      this.ServiceLoginService.registerUser(this.registroForm.value).subscribe(
+        response => {
+          console.log('Usuario registrado exitosamente:', response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: 'El usuario se ha registrado correctamente.'
+          });
+          // Realizar cualquier acción adicional después de registrar al usuario
+          this.resetForm();
+
         },
+        error => {
+          console.error('Error al registrar usuario:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error de registro',
+            text: 'Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.'
+          });
+        }
+      );
+    } else {
+      // Resaltar campos inválidos en rojo
+      Object.keys(this.registroForm.controls).forEach(field => {
+        const control = this.registroForm.get(field);
+        if (control instanceof FormGroup) {
+          this.highlightInvalidFields(control);
+        } else {
+          control?.markAsTouched();
+        }
+      });
+      // Mostrar mensaje de error
+      Swal.fire({
         icon: 'error',
-        title: 'Error de registro',
-        text: 'Al parecer hubo un error al realizar el registro intenta nuevamente.',
+        title: 'Formulario incompleto',
+        text: 'Por favor, completa todos los campos correctamente.'
       });
     }
   }
+
+  highlightInvalidFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormGroup) {
+        this.highlightInvalidFields(control);
+      } else {
+        control?.markAsTouched();
+        control?.markAsDirty();
+      }
+    });
+  }
+
+  resetForm() {
+    this.registroForm.reset(); // Resetea todos los campos
+  }
+  
 }

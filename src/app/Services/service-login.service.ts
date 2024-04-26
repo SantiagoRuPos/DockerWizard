@@ -55,4 +55,7 @@ export class ServiceLoginService {
       localStorage.removeItem('accessToken');
     }
   }
+  registerUser(newUser:any): Observable<any> {
+    return  this.http.post<any>(`${this.apiUrl}/register-user`, newUser)
+  }
 }
