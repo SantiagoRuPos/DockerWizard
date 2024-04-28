@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center align-items-center vh-100" style="margin-top: -190px;">
+    <div>
+      <app-menu></app-menu>
+      <div class="container text-center">
+        <h2>Lista de Usuarios</h2>
+       
+<div class="container mt-2 text-center">
+    <div class="form-group" style="width: 200px; margin: 0 auto;">
+      <label for="Nombre_Usuario">Nombre de Usuario:</label>
+      <input type="text" class="form-control form-control-sm" id="Nombre_Usuario" [(ngModel)]="Nombre_Usuario">
+    </div>
+    <button class="btn btn-primary mt-2" (click)="TraerUsuario()">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.2rem;">data_loss_prevention</span> Buscar
+    </button> <!-- Añadido mt-2 para margen superior -->
+  </div>
+  
+  <div class="container mt-2 text-center">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" (click)="seleccionarUsuario(user.Nombre_Usuario)">
+          <td>{{ user.Id_Usuario }}</td>
+          <td>{{ user.Nombre_Usuario }}</td>
+          <td>{{ getEstadoUsuario(user.Estado_Usuario) }}</td>
+        </tr>
+        <tr *ngIf="users.length === 0">
+          <td colspan="6" class="text-center">No se encontraron usuarios.</td>
+        </tr>
+      </tbody>
+    </table>
+    <select class="form-select mt-2" [(ngModel)]="estadoSeleccionado" aria-label="Default select" style="width: 300px;">
+      <option selected>Nuevo estado para el usuario</option>
+      <option value="1">Activo</option>
+      <option value="2">Desactivo</option>
+    </select>
+    <button class="btn btn-primary mt-2" (click)="cambiarEstado()">
+      Cambiar Estado
+    </button>
+  </div>
+  </div>
+  
+  

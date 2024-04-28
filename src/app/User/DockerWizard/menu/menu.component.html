@@ -13,16 +13,25 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
+              <a class="nav-link" (click)="navegarAComponente()">Perfil</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" (click)="navegarAComponente()">Registro Nuevo Usuario</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" (click)="BuscarUsuarios()">Buscar Ususarios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Automatización de Dockers</a>
+                <a class="nav-link" (click)="StatusUsers()">Activar Usuario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">DockerWizard</a>
+                <a class="nav-link" (click)="StatusUsers()">Restablecer credenciales Usuario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="Principal()" >Atras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="volver()" >Menu Principal</a>
               </li>
           </ul>
 

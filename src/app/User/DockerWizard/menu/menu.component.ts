@@ -16,4 +16,15 @@ export class MenuComponent {
   BuscarUsuarios(){
     this.router.navigate(['/Buscar-Usuarios']);
   }
+  StatusUsers(){
+    this.router.navigate(['/StatusUsers']);
+  }
+  Principal(){
+    this.router.navigate(['/AdminDockerwizard']);
+
+  }
+  volver(){
+    this.router.navigate(['/Home']);
+
+  }
 }

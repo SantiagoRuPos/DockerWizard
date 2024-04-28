@@ -12,16 +12,19 @@ import {MenuComponent} from './User/DockerWizard/menu/menu.component';
 import {BodyDockerWizardComponent} from './User/DockerWizard/body-docker-wizard/body-docker-wizard.component';
 import { RegisterUserComponent } from "./User/DockerWizard/register-user/register-user.component";
 import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.component';
+import { BodyHomeComponent } from "./User/body-home/body-home.component";
+import {StatusUserComponent} from './User/DockerWizard/status-user/status-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'RestablecerContrasena', component: ResetPasswordComponent },
-  { path: 'Home', component: HomeComponent, canActivate: [AuthGuard] },
-
-  { path: 'AdminDockerwizard', component: MenuComponent, canActivate: [AuthGuard] },
+  { path: 'Home', component:BodyHomeComponent , canActivate: [AuthGuard] },
+  ///RUTAS DE GESTION DE DOCKERWIZARD
+  { path: 'AdminDockerwizard', component: BodyDockerWizardComponent, canActivate: [AuthGuard] },
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
   { path: 'Buscar-Usuarios', component:ListUsersComponent, canActivate: [AuthGuard]},
+  { path: 'StatusUsers', component:StatusUserComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

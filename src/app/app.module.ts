@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './User/login/login.component';
 import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
-import { HomeComponent } from './User/View/home/home.component';
+
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,17 @@ import { BodyDockerWizardComponent } from './User/DockerWizard/body-docker-wizar
 import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.component';
 
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { StatusUserComponent } from './User/DockerWizard/status-user/status-user.component';
+import { BodyHomeComponent } from './User/body-home/body-home.component';
+import { HomeComponent  } from "./User/home/home.component";
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {SelectionModel} from '@angular/cdk/collections';
+import { MenuAutoDokcerComponent } from './User/AutoDocker/menu-auto-dokcer/menu-auto-dokcer.component';
+import { NewProjectComponent } from './User/DockerWizard/new-project/new-project.component';
 
 
 @NgModule({
@@ -25,12 +36,16 @@ import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.co
     AppComponent,
     LoginComponent,
     ResetPasswordComponent,
-    HomeComponent,
     RegisterUserComponent,
     MenuComponent,
     BodyDockerWizardComponent,
     ListUsersComponent,
-    
+    StatusUserComponent,
+    BodyHomeComponent,
+    HomeComponent,
+    MenuAutoDokcerComponent,
+    NewProjectComponent
+ 
   
 
   ],
@@ -40,6 +55,9 @@ import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule, 
+    MatDividerModule,
+    MatIconModule
 
   ],
   

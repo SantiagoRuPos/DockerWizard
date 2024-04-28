@@ -41,7 +41,7 @@ export class ServiceLoginService {
   }
 
   isLoggedIn(): boolean {
-  if (typeof window !== 'undefined' && localStorage) {
+    if (typeof window !== 'undefined' && localStorage) {
       // Verificar si existe un token de acceso en localStorage
       return !!localStorage.getItem('accessToken');
     } else {
@@ -56,16 +56,20 @@ export class ServiceLoginService {
     }
   }
 
-  registerUser(newUser:any): Observable<any> {
-    return  this.http.post<any>(`${this.apiUrl}/register-user`, newUser)
+  registerUser(newUser: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/register-user`, newUser)
   }
 
-  GetUser(Nombre_Usuario?: string): Observable<any>{
-    let url = `${this.apiUrl}/ListarUsuario`;
-    if (Nombre_Usuario) {
-      url += `?Nombre_Usuario=${Nombre_Usuario}`;
-    }
-    return this.http.get<any>(url);
+  getUsersByName(Nombre_Usuario: string) {
+    return this.http.post<any>(`${this.apiUrl}/ListarUsuario`, { Nombre_Usuario: Nombre_Usuario });
+  }
 
+  getAllUser():Observable <any>{
+    return this.http.get<any>(`${this.apiUrl}/ListUsers`);
+
+  }
+
+  UpdateStatusUser(Estado_Usuario: any, Nombre_Usuario: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/UpdateStatusUser`, { Estado_Usuario: Estado_Usuario, Nombre_Usuario: Nombre_Usuario });
   }
 }

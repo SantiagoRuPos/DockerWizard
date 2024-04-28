@@ -1,28 +1,61 @@
-<!--<div>
+<div class="Div-menu" >
   <app-menu></app-menu>
-</div>!-->
-<div>
+</div>
+<div class="container text-center">
   <h2>Lista de Usuarios</h2>
-  <div class="form-group">
+  <div class="form-group" style="width: 200px; margin: 0 auto;">
     <label for="Nombre_Usuario">Nombre de Usuario:</label>
-    <input type="text" class="form-control" id="Nombre_Usuario" [(ngModel)]="Nombre_Usuario">
+    <input type="text" class="form-control form-control-sm" id="Nombre_Usuario" [(ngModel)]="Nombre_Usuario">
   </div>
-  <button class="btn btn-primary" (click)="loadUsers()">Buscar</button>
+  <button class="btn btn-primary mt-2" (click)="loadUsers()">
+    <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.2rem;">
+        data_loss_prevention
+    </span> Buscar
+</button> <!-- Añadido mt-2 para margen superior -->
 </div>
 
-<div *ngIf="users">
+<div  class="container">
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Nombre de Usuario</th>
         <th scope="col">Nombre Completo</th>
+        <th scope="col">Nombre de Usuario</th>
+        <th scope="col">Nombre de Usuario en Cygnus</th>
         <th scope="col">Correo Institucional</th>
+        <th scope="col">Ultima Conexión</th>
+        <th scope="col">Estado Usuario</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{ user.Nombre_Usuario }}</td>
         <td>{{ user.Nombre_Completo_Usuario }}</td>
+        <td>{{ user.Nombre_Usuario }}</td>
+        <td>{{ user.Nombre_Usuario_Cygnus }}</td>
         <td>{{ user.Correo_Institucional_Usuario }}</td>
+        <td>{{ user.Conexion_Usuario }}</td>
+        <td>{{ getEstadoUsuario(user.Estado_Usuario) }}</td>
+      </tr>
+      <tr *ngIf="users.length === 0"> <!-- Agregamos una fila si no hay usuarios -->
+        <td colspan="6" class="text-center">No se encontraron usuarios.</td>
       </tr>
     </tbody>
+  </table>
+</div>
+
+
+<div class="container text-center">
+  <div class="example-button-row">
+    <button mat-raised-button color="primary"  (click)="RegisterUser()"   ><i class="bi bi-person-plus-fill"></i> Registrar Usuario</button>
+    <button mat-raised-button color="primary">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.0rem;">
+          lock_clock
+      </span> Restablecer Contraseña
+  </button>
+  
+    <button mat-raised-button color="primary" (click)="UpdateStatus()">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.0rem;">
+          person_off
+      </span>Inhabilitar/Habilitar Usuarios
+  </button>
+  </div>
+</div>
