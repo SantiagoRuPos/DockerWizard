@@ -21,6 +21,9 @@ export class MenuComponent {
   }
   Principal(){
     this.router.navigate(['/AdminDockerwizard']);
+  }
+  RegsitroProject(){
+    this.router.navigate(['/Registro-nuevo-proyecto']);
 
   }
   volver(){

@@ -19,11 +19,11 @@ export class RegisterUserComponent {
       Tipo_Identificacion_Usuario: ['', Validators.required],
       Numero_Identificacion_Usuario: ['', Validators.required],
       Nombre_Completo_Usuario: ['', Validators.required],
-      Correo_Institucional_Usuario: ['', Validators.required],
+      Correo_Institucional_Usuario:['', [Validators.required, Validators.email]],
       Numero_Contacto: ['', Validators.required],
       Nombre_Usuario: ['', Validators.required],
       Password_Usuario: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4), Validators.maxLength(8)]],
-      Confirmar_Password_Usuario: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      Confirmar_Password_Usuario: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4), Validators.maxLength(8)]],
       Nombre_Usuario_Cygnus: ['', Validators.required]
     }, { validators: this.checkPasswords });
   }
@@ -35,6 +35,7 @@ export class RegisterUserComponent {
 
     if (pass !== confirmPass) {
       group.get('Confirmar_Password_Usuario')?.setErrors({ notSame: true });
+    
     } else {
       group.get('Confirmar_Password_Usuario')?.setErrors(null);
     }
@@ -52,17 +53,17 @@ export class RegisterUserComponent {
             icon: 'success',
             title: 'Registro exitoso',
             text: 'El usuario se ha registrado correctamente.'
+          }).then(() => {
+            // Realizar cualquier acción adicional después de registrar al usuario
+            this.resetForm();
           });
-          // Realizar cualquier acción adicional después de registrar al usuario
-          this.resetForm();
-
         },
         error => {
           console.error('Error al registrar usuario:', error);
           Swal.fire({
             icon: 'error',
             title: 'Error de registro',
-            text: 'Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.'
+            text: 'Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo. o comprueba que el usuario ya no se encuentre registrado '
           });
         }
       );

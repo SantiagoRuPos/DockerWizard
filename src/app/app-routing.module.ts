@@ -14,6 +14,7 @@ import { RegisterUserComponent } from "./User/DockerWizard/register-user/registe
 import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.component';
 import { BodyHomeComponent } from "./User/body-home/body-home.component";
 import {StatusUserComponent} from './User/DockerWizard/status-user/status-user.component';
+import { NewProjectComponent } from './User/DockerWizard/new-project/new-project.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
   { path: 'Buscar-Usuarios', component:ListUsersComponent, canActivate: [AuthGuard]},
   { path: 'StatusUsers', component:StatusUserComponent, canActivate: [AuthGuard]},
+  {path: 'Registro-nuevo-proyecto', component:NewProjectComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

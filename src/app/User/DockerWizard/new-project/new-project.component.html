@@ -1,1 +1,75 @@
-<p>new-project works!</p>
+<div class="container" style="margin-bottom: 100px;">
+    <app-menu></app-menu>
+</div>
+<div class="container">
+    <div id="encabezado">
+        <h3>Nuevo Proyecto</h3>
+    </div>
+    <div class="container" id="Formulario">
+        <form [formGroup]="projectForm" (ngSubmit)="submitForm()">
+            <div class="mb-3">
+                <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
+                <input type="text" class="form-control" id="nombreProyecto" formControlName="nombreProyecto" placeholder="Nombre del Proyecto Completo">
+            </div>
+            <div class="mb-3">
+                <label for="nombreAcronimo" class="form-label">Nombre Proyecto Acronimo</label>
+                <input type="text" class="form-control" id="nombreAcronimo" formControlName="nombreAcronimo" placeholder="Nombre Corto del proyecto">
+                <small class="form-text text-muted" *ngIf="projectForm.get('nombreAcronimo')?.errors?.['pattern'] || projectForm.get('nombreAcronimo')?.errors?.['minlength'] || projectForm.get('nombreAcronimo')?.errors?.['maxlength']">
+                    <span *ngIf="projectForm.get('nombreAcronimo')?.errors?.['pattern']">El nombre corto solo puede tener letras y numeros</span>
+                    <span *ngIf="projectForm.get('nombreAcronimo')?.errors?.['minlength'] || projectForm.get('nombreAcronimo')?.errors?.['maxlength']">El nombre corto debe tener entre 4 y 8 caracteres.</span>
+                  </small>
+            </div>
+            <div class="mb-3">
+                <label for="usuarioCygnus" class="form-label">Nombre Usuario Cygnus</label>
+                <input type="text" class="form-control" id="usuarioCygnus" formControlName="usuarioCygnus" placeholder="Usuario">
+                <small class="form-text text-muted" *ngIf="projectForm.get('usuarioCygnus')?.errors?.['pattern'] || projectForm.get('usuarioCygnus')?.errors?.['minlength'] || projectForm.get('usuarioCygnus')?.errors?.['maxlength']">
+                    <span *ngIf="projectForm.get('usuarioCygnus')?.errors?.['pattern']"> El nombre de usuario en Cygnus no debe de llevar numero ni caracteres especiales</span>
+                    <span *ngIf="projectForm.get('usuarioCygnus')?.errors?.['minlength'] || projectForm.get('usuarioCygnus')?.errors?.['maxlength']"> La contraseña debe tener entre 4 y 10 caracteres. </span>
+                  </small>
+            </div>
+            <div class="mb-3">
+                <label for="rolProyecto" class="form-label">Tipo de Proyecto</label>
+                <select class="form-select" id="rolProyecto" formControlName="rolProyecto" aria-label="Seleccione el tipo de proyecto" multiple>
+                    <option *ngFor="let rol of Rol_Proyecto" [value]="rol">{{ rol }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="nombreLider" class="form-label">Nombre Lider del proyecto</label>
+                <input type="text" class="form-control" id="nombreLider" formControlName="nombreLider" placeholder="Nombre lider proyecto">
+            </div>
+            <div class="mb-3">
+                <label for="numeroLider" class="form-label">Numero Lider del proyecto</label>
+                <input type="number" class="form-control" id="numeroLider" formControlName="numeroLider" placeholder="1234568">
+            </div>
+      
+            <div class="mb-3">
+                <label for="correoLider" class="form-label">Correo líder del proyecto</label>
+                <input type="email" class="form-control" id="correoLider" formControlName="correoLider" placeholder="nombre@uniajc.edu.co" [class.is-invalid]="projectForm.get('correoLider')?.invalid && projectForm.get('correoLider')?.touched">
+                <div class="invalid-feedback" *ngIf="projectForm.get('correoLider')?.invalid && projectForm.get('correoLider')?.touched">
+                    El correo electrónico no es válido.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="cargoInstitucional" class="form-label">Cargo Institucional del lider</label>
+                <select class="form-select" id="Cargo_Institucional" formControlName="cargoInstitucional" aria-label="Seleccione el cargo institucional" multiple>
+                    <option *ngFor="let cargo of Cargo_Institucional" [value]="cargo">{{ cargo }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="programaPerteneciente" class="form-label">Programa Academico perteneciente</label>
+                <select class="form-select" id="programaPerteneciente" formControlName="programaPerteneciente" aria-label="Seleccione el programa academico" multiple>
+                    <option *ngFor="let programa of Programa_Perteneciente" [value]="programa">{{ programa }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="semillero" class="form-label">Semillero lider proyecto</label>
+                <input type="text" class="form-control" id="semillero" formControlName="semillero" placeholder="Semillero">
+            </div>
+            <div class="mb-3">
+                <label for="grupoInvestigacion" class="form-label">Grupo de investigacion lider proyecto</label>
+                <input type="text" class="form-control" id="grupoInvestigacion" formControlName="grupoInvestigacion" placeholder="Grupo">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
