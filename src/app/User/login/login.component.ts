@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import Swal from 'sweetalert2';
-
-
-
-import {ServiceLoginService} from '../../Services/service-login.service';
+import { ServiceLoginService } from '../../Services/service-login.service';
+import {UsuarioInfoService} from '../../Services/usuario-info.service';
 
 @Component({
   selector: 'app-login',
@@ -16,12 +12,12 @@ import {ServiceLoginService} from '../../Services/service-login.service';
 })
 export class LoginComponent {
   imagenes: string = '';
- 
+  users: any[] = [];
   loginForm: FormGroup;
   submitted = false;
   loading = false;
   error = '';
-  constructor (private ServiceLoginService:ServiceLoginService, private router: Router,private formBuilder: FormBuilder,){
+  constructor(private ServiceLoginService: ServiceLoginService, private router: Router, private formBuilder: FormBuilder,private UsuarioInfoService:UsuarioInfoService) {
 
     this.loginForm = this.formBuilder.group({
       Nombre_Usuario: ['', Validators.required],
@@ -34,7 +30,15 @@ export class LoginComponent {
     const credentials = this.loginForm.value;
     this.ServiceLoginService.login(credentials).subscribe(success => {
       if (success) {
-        this.router.navigate(['/Home']);
+        this.ServiceLoginService.getUserInfo(credentials.Nombre_Usuario).subscribe(
+          (data: any) => {
+            // Guardar los datos de usuario en el almacenamiento local
+            const users = data.usuarios ? [data.usuarios] : [];
+            this.UsuarioInfoService.setUsuarios(users);
+            // Navegar al componente Home
+            this.router.navigate(['/Home']);
+          }
+        )
       } else {
         Swal.fire({
           icon: 'error',
@@ -49,9 +53,15 @@ export class LoginComponent {
       }
     });
   }
+  
+
+
+
+
+
 }
-  
-  
+
+
 
 
 /*  listarImagenesDocker() {

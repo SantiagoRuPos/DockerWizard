@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import internal from 'stream';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,10 @@ export class ServiceLoginService {
       );
   }
 
+  getUserInfo(Nombre_Usuario: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/userinfo`,{Nombre_Usuario});
+  }
+  
   isLoggedIn(): boolean {
     if (typeof window !== 'undefined' && localStorage) {
       // Verificar si existe un token de acceso en localStorage
@@ -71,5 +76,9 @@ export class ServiceLoginService {
 
   UpdateStatusUser(Estado_Usuario: any, Nombre_Usuario: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/UpdateStatusUser`, { Estado_Usuario: Estado_Usuario, Nombre_Usuario: Nombre_Usuario });
+  }
+  
+  RegisterNewProyect(Infro: {Nombre_Proyecto:String,Nombre_Proyecto_Acronomio:String,Nombre_Usuario_Cygnus:String,Rol_Proyecto:any,Nombre_Lider_Proyecto:String,Telefono_Lider_Proyecto:String,Correo_Institucional_Lider:String,Cargo_Institucional:any,Programa_Academico_Proyecto:any,Semillero_Lider:String,Grupo_Investigacion:String,Usuario_Regsitrado_Proyecto:any}):Observable <any> {
+    return this.http.post<any>(`${this.apiUrl}/NewProject`,Infro);
   }
 }

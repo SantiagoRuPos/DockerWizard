@@ -15,6 +15,7 @@ export class RegisterUserComponent {
   Tipo_Identificacion = ['Cédula de Ciudadanía', 'Tarjeta de Identidad', 'Pasaporte', 'Cédula Extranjera'];
 
   constructor(private formBuilder: FormBuilder, private ServiceLoginService: ServiceLoginService) {
+    
     this.registroForm = this.formBuilder.group({
       Tipo_Identificacion_Usuario: ['', Validators.required],
       Numero_Identificacion_Usuario: ['', Validators.required],
