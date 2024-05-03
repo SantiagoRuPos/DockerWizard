@@ -14,6 +14,8 @@ export class HomeComponent {
     this.router.navigate(['/AdminDockerwizard']); 
   }
   logout(): void {
+    this.router.navigate(['/Login']); 
     this.authService.logout(); // Llama al método de logout del servicio de autenticación
+
   }
 }

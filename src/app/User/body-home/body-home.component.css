@@ -72,4 +72,7 @@
   }
   
   /* rest of the CSS styles remain the same */
-  
+  .mat-tooltip {
+    font-size: 14px;
+    max-width: 200px;
+}

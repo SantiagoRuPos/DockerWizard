@@ -8,6 +8,7 @@ import {UsuarioInfoService} from '../../Services/usuario-info.service';
 })
 export class BodyHomeComponent implements OnInit{
   usuarios: any[] = [];
+  showTooltip: boolean = false; 
   constructor (private  UsuarioInfoService:UsuarioInfoService){
 
   }
