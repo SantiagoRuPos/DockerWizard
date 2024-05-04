@@ -43,7 +43,25 @@ export class StatusUserComponent {
             confirmButtonText: 'OK'
         });
             console.log(error);
-        }
+            this.ServiceLoginService.getAllUser().subscribe(
+              (data:any)=> {
+                 
+            if (Array.isArray(data.usuarios)) {
+              this.users = data.usuarios;
+              
+          } else {
+              this.users = data.usuarios ? [data.usuarios] : [];
+          }
+
+          if (this.users.length === 0) {
+              // Mostrar alerta cuando no se encuentra el usuario
+              console.log("error");
+            
+          }
+              }
+            )
+          }
+      
     );
 }
 getEstadoUsuario(estado: number): string {

@@ -73,6 +73,10 @@ export class ServiceLoginService {
     return this.http.get<any>(`${this.apiUrl}/ListUsers`);
 
   }
+  ResetPassword(resetPasswordForm:{Nombre_Usuario:String,Password_Usuario:String}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/resetPassword`,resetPasswordForm);
+
+  }
 
   UpdateStatusUser(Estado_Usuario: any, Nombre_Usuario: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/UpdateStatusUser`, { Estado_Usuario: Estado_Usuario, Nombre_Usuario: Nombre_Usuario });

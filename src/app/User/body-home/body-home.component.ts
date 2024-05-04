@@ -9,7 +9,7 @@ import {UsuarioInfoService} from '../../Services/usuario-info.service';
 export class BodyHomeComponent implements OnInit{
   usuarios: any[] = [];
   showTooltip: boolean = false; 
-  constructor (private  UsuarioInfoService:UsuarioInfoService){
+  constructor (private  UsuarioInfoService:UsuarioInfoService,private router:Router){
 
   }
   ngOnInit(): void {
@@ -17,6 +17,22 @@ export class BodyHomeComponent implements OnInit{
     console.log(this.usuarios);
   }
 
+  RutaRapidaNuevoUsuarioCygnus(){
+    this.router.navigate(['/registro-nuevo-usuario']); 
+
+  }
+  RutaRapidaNuevoProyectoDockerWizard(){
+    this.router.navigate(['/Registro-nuevo-proyecto']); 
+
+  }
+  RutaRapidaReporteFallo(){
+    this.router.navigate(['/']); 
+
+  }
+  RutaRapidaPerfil(){
+    this.router.navigate(['/']); 
+
+  }
 
 
   }

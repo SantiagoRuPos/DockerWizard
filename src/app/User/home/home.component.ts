@@ -13,9 +13,18 @@ export class HomeComponent {
   navegarAComponente() {
     this.router.navigate(['/AdminDockerwizard']); 
   }
+  AutoDocker(){
+    this.router.navigate(['/AutoDocker']); 
+  }
   logout(): void {
-    this.router.navigate(['/Login']); 
+  
     this.authService.logout(); // Llama al método de logout del servicio de autenticación
-
+    this.login();
+  }
+  login(){
+    this.router.navigate(['/login']); 
+  }
+  AdminCygnus(){
+    this.router.navigate(['/AdminCygnus']); 
   }
 }

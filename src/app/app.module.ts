@@ -21,12 +21,18 @@ import { HomeComponent  } from "./User/home/home.component";
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {SelectionModel} from '@angular/cdk/collections';
-import { MenuAutoDokcerComponent } from './User/AutoDocker/menu-auto-dokcer/menu-auto-dokcer.component';
+
 import { NewProjectComponent } from './User/DockerWizard/new-project/new-project.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importa BrowserAnimationsModule
 
-import { MatTooltipModule } from '@angular/material/tooltip'; 
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BodyAutoDockerComponent } from './User/AutoDocker/body-auto-docker/body-auto-docker.component';
+import { MenuAutoDockerComponent } from './User/AutoDocker/menu-auto-docker/menu-auto-docker.component';
+import { BodyAdminCygnusComponent } from './User/AdminCygnus/body-admin-cygnus/body-admin-cygnus.component';
+import { MenuAdminCygnusComponent } from './User/AdminCygnus/menu-admin-cygnus/menu-admin-cygnus.component';
+import { ListProjectsComponent } from './User/DockerWizard/list-projects/list-projects.component';
+import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component'; 
 
 @NgModule({
   declarations: [
@@ -40,8 +46,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     StatusUserComponent,
     BodyHomeComponent,
     HomeComponent,
-    MenuAutoDokcerComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    BodyAutoDockerComponent,
+    MenuAutoDockerComponent,
+    BodyAdminCygnusComponent,
+    MenuAdminCygnusComponent,
+    ListProjectsComponent,
+    ResetPasswordUserComponent
  
   
 

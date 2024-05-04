@@ -10,21 +10,24 @@ export class MenuComponent {
   constructor(private router: Router){
 
   }
-  navegarAComponente() {
+  NuevoUsuarioDockerWizard() {
     this.router.navigate(['/registro-nuevo-usuario']);
   }
-  BuscarUsuarios(){
+  BuscarUsuariosDockerWizard(){
     this.router.navigate(['/Buscar-Usuarios']);
   }
-  StatusUsers(){
+  StatusUsersDockerWizard(){
     this.router.navigate(['/StatusUsers']);
   }
-  Principal(){
+  PrincipalDockerWizard(){
     this.router.navigate(['/AdminDockerwizard']);
   }
   RegsitroProject(){
     this.router.navigate(['/Registro-nuevo-proyecto']);
 
+  }
+  ResetPassword(){
+    this.router.navigate(['/ResetPassword']);
   }
   volver(){
     this.router.navigate(['/Home']);

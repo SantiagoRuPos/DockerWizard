@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuAutoDokcerComponent } from './menu-auto-dokcer.component';
+import { MenuAdminCygnusComponent } from './menu-admin-cygnus.component';
 
-describe('MenuAutoDokcerComponent', () => {
-  let component: MenuAutoDokcerComponent;
-  let fixture: ComponentFixture<MenuAutoDokcerComponent>;
+describe('MenuAdminCygnusComponent', () => {
+  let component: MenuAdminCygnusComponent;
+  let fixture: ComponentFixture<MenuAdminCygnusComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MenuAutoDokcerComponent]
+      declarations: [MenuAdminCygnusComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(MenuAutoDokcerComponent);
+    fixture = TestBed.createComponent(MenuAdminCygnusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
