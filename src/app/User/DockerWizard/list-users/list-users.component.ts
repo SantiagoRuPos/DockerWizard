@@ -41,6 +41,13 @@ export class ListUsersComponent {
               },
               (errorAll) => {
                 console.log(errorAll);
+         
+                Swal.fire({
+                  icon: 'error',
+                  title: '¡Ups! Ha ocurrido un error.',
+                  text: 'Se ha detectado un problema. Por favor, inténtalo de nuevo. Si el error persiste, por favor genera un reporte.',
+                  confirmButtonText: 'OK'
+                });
               }
             );
           }
@@ -64,6 +71,13 @@ export class ListUsersComponent {
             },
             (error) => {
               console.log(error);
+    
+              Swal.fire({
+                icon: 'error',
+                title: '¡Ups! Ha ocurrido un error.',
+                text: 'Se ha detectado un problema. Por favor, inténtalo de nuevo. Si el error persiste, por favor genera un reporte.',
+                confirmButtonText: 'OK'
+              });
             }
           );
        
@@ -103,5 +117,7 @@ export class ListUsersComponent {
   UpdateStatus(){
     this.router.navigate(['/StatusUsers']);
   }
-
+  ResetPassword(){
+    this.router.navigate(['/ResetPassword']); 
+  }
 }

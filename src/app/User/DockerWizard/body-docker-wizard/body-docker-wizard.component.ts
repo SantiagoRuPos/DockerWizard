@@ -22,4 +22,9 @@ ResetPassword(){
 RegistroProyecto(){
   this.router.navigate(['/Registro-nuevo-proyecto']); 
 }
+ListProjects(){
+  this.router.navigate(['/ListProjects']); 
+}
+
+
 }

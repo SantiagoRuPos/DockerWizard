@@ -1,0 +1,52 @@
+<div class="container" style="margin-bottom: 100px;">
+    <app-menu></app-menu>
+</div>
+        <div class="container text-center">
+          <h2>Lista de Proyectos</h2>
+          <div class="form-group" style="width: 200px; margin: 0 auto;">
+        <!-- Añadido margin-top: 20px; -->
+              <label for="Nombre_Proyecto">Nombre del proyecto:</label>
+              <input type="text" class="form-control form-control-sm" id="Nombre_Proyecto" [(ngModel)]="Nombre_Proyecto">
+          </div>
+          <button class="btn btn-primary mt-2" (click)="TraerProyectos()">
+              <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.2rem;">data_loss_prevention</span> Buscar
+          </button> <!-- Añadido mt-2 para margen superior -->
+      </div>
+  
+      <div  class="container">
+        <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Usuario</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proyect of proyects" (click)="seleccionarProyecto(proyect.Nombre_Proyecto)">
+          <td>{{ proyect.Nombre_Proyecto }}</td>
+          <td>{{ getEstadoProyecto(proyect.Estado_Proyecto) }}</td>
+        </tr>
+        <tr *ngIf="proyects.length === 0">
+          <td colspan="6" class="text-center">No se encontraron usuarios.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="container text-center">
+    <div class="example-button-row">
+      <select class="form-select mx-auto" [(ngModel)]="estadoSeleccionado" aria-label="Default select" style="width: 300px;">
+        <option selected>Seleciona el nuevo estado del proyecto</option>
+        <option value="1">Activo</option>
+        <option value="2">Desactivo</option>
+      </select>
+      
+      
+      <button class="btn btn-primary mt-2" (click)="cambiarEstado()">
+        Cambiar Estado
+      </button>
+    </div>
+  </div>
+  
+  

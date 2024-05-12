@@ -26,6 +26,12 @@ export class MenuComponent {
     this.router.navigate(['/Registro-nuevo-proyecto']);
 
   }
+  ListsProyects(){
+    this.router.navigate(['/ListProjects']);
+  }
+  StatusProject(){
+    this.router.navigate(['/StatusProject']);
+  }
   ResetPassword(){
     this.router.navigate(['/ResetPassword']);
   }

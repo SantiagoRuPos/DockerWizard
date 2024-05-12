@@ -32,7 +32,9 @@ import { MenuAutoDockerComponent } from './User/AutoDocker/menu-auto-docker/menu
 import { BodyAdminCygnusComponent } from './User/AdminCygnus/body-admin-cygnus/body-admin-cygnus.component';
 import { MenuAdminCygnusComponent } from './User/AdminCygnus/menu-admin-cygnus/menu-admin-cygnus.component';
 import { ListProjectsComponent } from './User/DockerWizard/list-projects/list-projects.component';
-import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component'; 
+import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
+import { StatusProjectComponent } from './User/DockerWizard/status-project/status-project.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-u
     BodyAdminCygnusComponent,
     MenuAdminCygnusComponent,
     ListProjectsComponent,
-    ResetPasswordUserComponent
+    ResetPasswordUserComponent,
+    StatusProjectComponent
+    
  
   
 

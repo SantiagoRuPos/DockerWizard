@@ -1,1 +1,59 @@
-<p>list-projects works!</p>
+<div class="Div-menu" >
+    <app-menu></app-menu>
+  </div>
+  <div class="container text-center">
+    <h2>Lista de Proyectos</h2>
+    <div class="form-group" style="width: 200px; margin: 0 auto;">
+      <label for="Nombre_Proyecto">Nombre del Proyecto:</label>
+      <input type="text" class="form-control form-control-sm" id="Nombre_Proyecto" [(ngModel)]="Nombre_Proyecto">
+    </div>
+    <button class="btn btn-primary mt-2" (click)="Consulta()">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.2rem;">
+          data_loss_prevention
+      </span> Buscar
+  </button> <!-- Añadido mt-2 para margen superior -->
+  </div>
+  
+  <div  class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre del Proyecto</th>
+          <th scope="col">Estado del Proyecto</th>
+          <th scope="col">Tipo de Proyecto</th>
+          <th scope="col">Fecha de registro del proyecto</th>
+          <th scope="col">Fecha Finalizacion del proyecto</th>
+          <th scope="col">Nombre del lider de proyecto</th>
+          <th scope="col">Programa pertenenciente</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proyects of proyects">
+          <td>{{ proyects.Nombre_Proyecto}}</td>
+          <td>{{GetEstado (proyects.Estado_Proyecto) }}</td>
+          <td>{{ GetTipo (proyects.Rol_Proyecto) }}</td>
+          <td>{{GetFecha (proyects.Fecha_Registro_Proyecto) }}</td>
+          <td>{{GetFechaFinal (proyects.Fecha_Finalizacion_Proyecto) }}</td>
+          <td>{{ proyects.Nombre_Lider_Proyecto }}</td>
+          <td>{{GetPrograma  (proyects.Programa_Academico_Proyecto) }}</td>
+        </tr>
+        <tr *ngIf="proyects.length === 0"> <!-- Agregamos una fila si no hay usuarios -->
+          <td colspan="7" class="text-center">No se encontraron Proyectos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <div class="container text-center">
+    <div class="example-button-row">
+      <button mat-raised-button color="primary"    ><i class="bi bi-person-plus-fill"></i> Registrar Proyecto</button>
+   
+      <button mat-raised-button color="primary" >
+        <span class="material-symbols-outlined align-middle mr-1" style="font-size: 1.0rem;">
+            person_off
+        </span>Inhabilitar/Habilitar Proyecto
+    </button>
+    </div>
+  </div>
+  

@@ -19,9 +19,6 @@ export class ServiceLoginService {
   }
 
 
-  /*login(Nombre_Usuario: string, Password_Usuario: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { Nombre_Usuario, Password_Usuario });
-  }*/
 
   login(credentials: { Nombre_Usuario: string, Password_Usuario: string }): Observable<boolean> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials)
@@ -82,7 +79,18 @@ export class ServiceLoginService {
     return this.http.post<any>(`${this.apiUrl}/UpdateStatusUser`, { Estado_Usuario: Estado_Usuario, Nombre_Usuario: Nombre_Usuario });
   }
   
-  RegisterNewProyect(Infro: {Nombre_Proyecto:String,Nombre_Proyecto_Acronomio:String,Nombre_Usuario_Cygnus:String,Rol_Proyecto:any,Nombre_Lider_Proyecto:String,Telefono_Lider_Proyecto:String,Correo_Institucional_Lider:String,Cargo_Institucional:any,Programa_Academico_Proyecto:any,Semillero_Lider:String,Grupo_Investigacion:String,Usuario_Regsitrado_Proyecto:any}):Observable <any> {
+  RegisterNewProject(Infro: {Nombre_Proyecto:String,Nombre_Proyecto_Acronomio:String,Nombre_Usuario_Cygnus:String,Rol_Proyecto:any,Nombre_Lider_Proyecto:String,Telefono_Lider_Proyecto:String,Correo_Institucional_Lider:String,Cargo_Institucional:any,Programa_Academico_Proyecto:any,Semillero_Lider:String,Grupo_Investigacion:String,Usuario_Regsitrado_Proyecto:any}):Observable <any> {
     return this.http.post<any>(`${this.apiUrl}/NewProject`,Infro);
+  }
+
+  getProject(Nombre_Proyecto:String): Observable<any>{
+    return this.http.post<any> (`${this.apiUrl}/ListProject`,{Nombre_Proyecto:Nombre_Proyecto});
+  }
+  getAllProjects():Observable<any> {
+    return this.http.get <any>(`${this.apiUrl}/ListProjects`);
+  }
+  UpdateStatusProject(Estado_Proyecto:any,Nombre_Proyecto:string ):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/UpdateProject`, { Estado_Proyecto: Estado_Proyecto, Nombre_Proyecto: Nombre_Proyecto });
+
   }
 }

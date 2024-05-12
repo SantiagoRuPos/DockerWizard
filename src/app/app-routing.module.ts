@@ -16,6 +16,7 @@ import { BodyHomeComponent } from "./User/body-home/body-home.component";
 import {StatusUserComponent} from './User/DockerWizard/status-user/status-user.component';
 import { NewProjectComponent } from './User/DockerWizard/new-project/new-project.component';
 
+
 //Rutas Docker
 import {BodyAutoDockerComponent} from './User/AutoDocker/body-auto-docker/body-auto-docker.component';
 
@@ -23,6 +24,8 @@ import {BodyAutoDockerComponent} from './User/AutoDocker/body-auto-docker/body-a
 //RUATAS
 import {BodyAdminCygnusComponent} from './User/AdminCygnus/body-admin-cygnus/body-admin-cygnus.component';
 import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
+import { ListProjectsComponent } from './User/DockerWizard/list-projects/list-projects.component';
+import { StatusProjectComponent } from './User/DockerWizard/status-project/status-project.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -33,8 +36,11 @@ const routes: Routes = [
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
   { path: 'Buscar-Usuarios', component:ListUsersComponent, canActivate: [AuthGuard]},
   { path: 'StatusUsers', component:StatusUserComponent, canActivate: [AuthGuard]},
-  {path: 'Registro-nuevo-proyecto', component:NewProjectComponent,canActivate:[AuthGuard]},
+  { path: 'Registro-nuevo-proyecto', component:NewProjectComponent,canActivate:[AuthGuard]},
   { path: 'ResetPassword', component: ResetPasswordUserComponent,canActivate:[AuthGuard] },
+  { path:'ListProjects',component:ListProjectsComponent,canActivate:[AuthGuard]},
+  { path:'StatusProject',component:StatusProjectComponent,canActivate:[AuthGuard]},
+
 
   //Rutas para AUTOMATIZACION DE LOS DOCKERS DEL SERVIDOR
   {path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},

@@ -14,7 +14,7 @@ export class RegisterUserComponent {
   registroForm: FormGroup;
   Tipo_Identificacion = ['Cédula de Ciudadanía', 'Tarjeta de Identidad', 'Pasaporte', 'Cédula Extranjera'];
 
-  constructor(private formBuilder: FormBuilder, private ServiceLoginService: ServiceLoginService) {
+  constructor(private formBuilder: FormBuilder, private ServiceLoginService: ServiceLoginService,private Router:Router) {
     
     this.registroForm = this.formBuilder.group({
       Tipo_Identificacion_Usuario: ['', Validators.required],
@@ -103,4 +103,7 @@ export class RegisterUserComponent {
     this.registroForm.reset(); // Resetea todos los campos
   }
   
+  ResetPassword(){
+
+  }
 }

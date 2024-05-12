@@ -1,0 +1,44 @@
+/* Estilos para el formulario de búsqueda */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Estilos para el botón de búsqueda */
+.btn-primary {
+  margin-bottom: 20px;
+}
+
+/* Estilos para la tabla de usuarios */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para el título */
+h2 {
+  margin-bottom: 20px;
+}
+
+.Div-menu{
+  margin-bottom: 60px;
+}
+
+.example-button-row button,
+.example-button-row a {
+margin-right: 8px;
+}
+
+.example-disabled {
+display: inline-block;
+}

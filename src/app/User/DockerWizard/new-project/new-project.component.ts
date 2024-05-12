@@ -23,7 +23,7 @@ export class NewProjectComponent implements OnInit {
     
      this.projectForm = this.formBuilder.group({
     Nombre_Proyecto: ['', Validators.required],
-    Nombre_Proyecto_Acronimo: ['', [Validators.required,  Validators.pattern('[a-zA-Z0-9]+'),Validators.minLength(4), Validators.maxLength(8)]],
+    Nombre_Proyecto_Acronimo: ['', [Validators.required,  Validators.pattern('[a-zA-Z0-9]+'),Validators.minLength(4), Validators.maxLength(10)]],
     Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'), Validators.minLength(4), Validators.maxLength(10)]],
     Rol_Proyecto: ['', Validators.required],
     Nombre_Lider_Proyecto: ['', Validators.required],
@@ -60,7 +60,7 @@ export class NewProjectComponent implements OnInit {
     console.log(this.projectForm.value);
     if (this.projectForm.valid) {
       console.log(this.projectForm.value);
-    this.ServiceLoginService.RegisterNewProyect(this.projectForm.value).subscribe(
+    this.ServiceLoginService.RegisterNewProject(this.projectForm.value).subscribe(
       response => {
         console.log('registrado exitosamente:', response);
         Swal.fire({
