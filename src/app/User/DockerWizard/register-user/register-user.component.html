@@ -38,7 +38,7 @@
         </div>
         <div>
           <label for="Password_Usuario">Contraseña</label>
-          <input type="password" formControlName="Password_Usuario" placeholder="Contraseña">
+          <input type="password" formControlName="Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
           <small class="form-text text-muted" *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern'] || registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">
             <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
             <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
@@ -46,7 +46,7 @@
         </div>
         <div>
           <label for="Confirmar_Password_Usuario">Confirmar Contraseña</label>
-          <input type="password" formControlName="Confirmar_Password_Usuario" placeholder="Contraseña">
+          <input type="password" formControlName="Confirmar_Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
           <small class="form-text text-muted" *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">
             <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
             <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>

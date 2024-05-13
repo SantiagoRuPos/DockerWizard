@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-body-admin-cygnus',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './body-admin-cygnus.component.css'
 })
 export class BodyAdminCygnusComponent {
+  constructor(private router:Router){
+
+  }
+  NewUserCygnus(){
+    this.router.navigate(['/NewUserCygnus']); 
+  }
+  ListUserCygnus(){
+    this.router.navigate(['/ListUserCygnus']); 
+  }
 
 }

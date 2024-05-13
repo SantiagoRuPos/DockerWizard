@@ -34,6 +34,9 @@ import { MenuAdminCygnusComponent } from './User/AdminCygnus/menu-admin-cygnus/m
 import { ListProjectsComponent } from './User/DockerWizard/list-projects/list-projects.component';
 import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
 import { StatusProjectComponent } from './User/DockerWizard/status-project/status-project.component';
+import { NewUserCygnusComponent } from './User/AdminCygnus/new-user-cygnus/new-user-cygnus.component';
+import { ListUsersCygnusComponent } from './User/AdminCygnus/list-users-cygnus/list-users-cygnus.component';
+import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/process-cygnus.component';
 
 
 @NgModule({
@@ -55,7 +58,10 @@ import { StatusProjectComponent } from './User/DockerWizard/status-project/statu
     MenuAdminCygnusComponent,
     ListProjectsComponent,
     ResetPasswordUserComponent,
-    StatusProjectComponent
+    StatusProjectComponent,
+    NewUserCygnusComponent,
+    ListUsersCygnusComponent,
+    ProcessCygnusComponent
     
  
   

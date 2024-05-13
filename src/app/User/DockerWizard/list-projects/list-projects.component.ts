@@ -3,6 +3,7 @@ import { ServiceLoginService } from '../../../Services/service-login.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { error } from 'console';
+
 @Component({
   selector: 'app-list-projects',
   templateUrl: './list-projects.component.html',
@@ -134,6 +135,13 @@ GetPrograma(programa:number):string{
       return 'Programa académico no especificado';
   }
 
+}
+RegistrarProyectos(){
+  this.Router.navigate(['/Registro-nuevo-proyecto']); 
+
+}
+UpdateProyect(){
+  this.Router.navigate(['/StatusProject']); 
 }
 
 }

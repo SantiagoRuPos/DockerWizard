@@ -26,6 +26,9 @@ import {BodyAdminCygnusComponent} from './User/AdminCygnus/body-admin-cygnus/bod
 import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
 import { ListProjectsComponent } from './User/DockerWizard/list-projects/list-projects.component';
 import { StatusProjectComponent } from './User/DockerWizard/status-project/status-project.component';
+import { NewUserCygnusComponent } from './User/AdminCygnus/new-user-cygnus/new-user-cygnus.component';
+import { ListUsersCygnusComponent } from './User/AdminCygnus/list-users-cygnus/list-users-cygnus.component';
+import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/process-cygnus.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -38,16 +41,18 @@ const routes: Routes = [
   { path: 'StatusUsers', component:StatusUserComponent, canActivate: [AuthGuard]},
   { path: 'Registro-nuevo-proyecto', component:NewProjectComponent,canActivate:[AuthGuard]},
   { path: 'ResetPassword', component: ResetPasswordUserComponent,canActivate:[AuthGuard] },
-  { path:'ListProjects',component:ListProjectsComponent,canActivate:[AuthGuard]},
-  { path:'StatusProject',component:StatusProjectComponent,canActivate:[AuthGuard]},
+  { path: 'ListProjects',component:ListProjectsComponent,canActivate:[AuthGuard]},
+  { path: 'StatusProject',component:StatusProjectComponent,canActivate:[AuthGuard]},
 
 
   //Rutas para AUTOMATIZACION DE LOS DOCKERS DEL SERVIDOR
   {path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},
   
   //Rutas para Admnistracion
-  {path: 'AdminCygnus', component:BodyAdminCygnusComponent,canActivate:[AuthGuard]}
-
+  {path: 'AdminCygnus', component:BodyAdminCygnusComponent,canActivate:[AuthGuard]},
+  {path: 'NewUserCygnus', component:NewUserCygnusComponent,canActivate:[AuthGuard]},
+  {path: 'ListUserCygnus',component:ListUsersCygnusComponent,canActivate:[AuthGuard]},
+  {path: 'ProcessCygnus', component:ProcessCygnusComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

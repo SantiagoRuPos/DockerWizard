@@ -1,8 +1,55 @@
-
+  <div class="container">
+    <div class="container" style="margin-bottom: 100px;">
+  
 <app-menu-admin-cygnus></app-menu-admin-cygnus>
-<p>body-admin-cygnus works!</p>
 
-
-<div class="col-md-9">
+    </div>
+    <div class="container">
+      <h3 style="display: flex; align-items: center;">
+        Rutas Rapidas 
+        <span class="material-symbols-outlined" matTooltip="¡Bienvenido a la Administración de Cygnus! Aquí encontrarás las rutas más rápidas para realizar la administración del servidor (Cygnus). Recuerda que si estás teniendo problemas, reporta el error. En caso de que el sistema de administración de Cygnus falle, utiliza SSH." style="margin-left: 5px; vertical-align: middle;">
+            <mat-icon class="material-icons" style="margin-top: 2px;">help</mat-icon>
+        </span>
+    </h3>
+      <div class="section-container">
+        <div class="card" id="con">
+          <div class="card-body">
+            <h5 class="card-title">Crear Usuario</h5>
+            <p class="card-text">Registrar un nuevo Usuario en DockerWizard.</p>
+            <a  class="btn btn-primary"(click)="NewUserCygnus()" >Continuar</a>
+          </div>
+        </div>
+        <div class="card" id="con">
+          <div class="card-body">
+            <h5 class="card-title">Buscar Usuario</h5>
+            <p class="card-text">Activar o Desactivar Un usuario en DockerWizard.</p>
+            <a  class="btn btn-primary" (click)="ListUserCygnus()">Continuar</a>
+          </div>
+        </div>
+        <div class="card" id="con">
+          <div class="card-body">
+            <h5 class="card-title">Monitorear Usuarios</h5>
+            <p class="card-text">Restablecer la contraseña a algun usuario.</p>
+            <a  class="btn btn-primary">Continuar</a>
+          </div>
+        </div>
+        <div class="card" id="con">
+          <div class="card-body">
+            <h5 class="card-title">Asignar Permisos</h5>
+            <p class="card-text">Registrar un nuevo Proyecto en DockerWizard.</p>
+            <a  class="btn btn-primary">Continuar</a>
+          </div>
+        </div>
+        <div class="card" id="con">
+          <div class="card-body">
+            <h5 class="card-title">Restablecer Contraseña Usuario</h5>
+            <p class="card-text">Buscar Proyectos registrados en DockerWizard.</p>
+            <a  class="btn btn-primary">Continuar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-9">
     <router-outlet></router-outlet>
   </div>
+</div>
