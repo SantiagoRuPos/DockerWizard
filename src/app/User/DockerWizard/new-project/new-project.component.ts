@@ -23,8 +23,8 @@ export class NewProjectComponent implements OnInit {
     
      this.projectForm = this.formBuilder.group({
     Nombre_Proyecto: ['', Validators.required],
-    Nombre_Proyecto_Acronimo: ['', [Validators.required,  Validators.pattern('[a-zA-Z0-9]+'),Validators.minLength(4), Validators.maxLength(10)]],
-    Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'), Validators.minLength(4), Validators.maxLength(10)]],
+    Nombre_Proyecto_Acronimo: ['', [Validators.required,  Validators.pattern('[a-zA-Z0-9]+'),Validators.minLength(4), Validators.maxLength(20)]],
+    Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4)]],
     Rol_Proyecto: ['', Validators.required],
     Nombre_Lider_Proyecto: ['', Validators.required],
     Telefono_Lider_Proyecto: ['', Validators.required],

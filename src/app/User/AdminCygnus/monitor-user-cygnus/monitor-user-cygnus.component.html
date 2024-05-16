@@ -1,0 +1,33 @@
+<div class="container" style="margin-bottom: 100px;">  
+    <app-menu-admin-cygnus></app-menu-admin-cygnus>
+</div>
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Tty</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.user }}</td>
+        <td>{{ user.tty }}</td>
+        <td>{{ user.date }}</td>
+      </tr>
+      <tr *ngIf="users.length === 0">
+        <td colspan="3">No hay usuarios conectados.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container text-center">
+  <div class="example-button-row">
+    
+    <button class="btn btn-primary mt-2" (click)="monitorUsers()">
+      Consultar
+    </button>
+  </div>
+</div>

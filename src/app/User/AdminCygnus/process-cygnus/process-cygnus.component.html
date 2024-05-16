@@ -3,7 +3,10 @@
 </div>
 <div  class="container">
     <table class="table">
+
+     
   <thead>
+
     <tr>
       <th>PID</th>
       <th>Nombre</th>
@@ -21,7 +24,7 @@
       <td>{{ process.memory }}</td>
     </tr>
     <tr *ngIf="process.length === 0">
-      <td colspan="1" class="text-center">No se encontraron usuarios.</td>
+      <td colspan="6" class="text-center">No se han listado los procesos.</td>
     </tr>
   </tbody>
 </table>
@@ -32,7 +35,7 @@
     <div class="example-button-row">
       
       <button class="btn btn-primary mt-2" (click)="Consultar()">
-        Cambiar Estado
+       Consultar
       </button>
     </div>
   </div>

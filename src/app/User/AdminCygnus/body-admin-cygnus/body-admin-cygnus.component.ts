@@ -16,5 +16,7 @@ export class BodyAdminCygnusComponent {
   ListUserCygnus(){
     this.router.navigate(['/ListUserCygnus']); 
   }
-
+  MonitorUserCygnus(){
+    this.router.navigate(['/MonitorUserCygnus']);
+  }
 }

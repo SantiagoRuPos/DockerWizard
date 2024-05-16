@@ -23,4 +23,10 @@ export class MenuAdminCygnusComponent {
   MenuPrincipal(){
     this.router.navigate(['/Home']); 
   }
+  ProcessCygnus(){
+    this.router.navigate(['/ProcessCygnus']); 
+  }
+  MonitorUserCygnus(){
+    this.router.navigate(['/MonitorUserCygnus']);
+  }
 }

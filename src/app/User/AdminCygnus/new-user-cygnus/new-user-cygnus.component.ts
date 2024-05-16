@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CygnusService } from '../../../Services/cygnus.service';
 import Swal from 'sweetalert2';
-import { response } from 'express';
-import { error } from 'console';
 
 @Component({
   selector: 'app-new-user-cygnus',

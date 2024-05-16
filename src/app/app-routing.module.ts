@@ -29,6 +29,8 @@ import { StatusProjectComponent } from './User/DockerWizard/status-project/statu
 import { NewUserCygnusComponent } from './User/AdminCygnus/new-user-cygnus/new-user-cygnus.component';
 import { ListUsersCygnusComponent } from './User/AdminCygnus/list-users-cygnus/list-users-cygnus.component';
 import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/process-cygnus.component';
+import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-cygnus/reset-password-cygnus.component';
+import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -46,13 +48,15 @@ const routes: Routes = [
 
 
   //Rutas para AUTOMATIZACION DE LOS DOCKERS DEL SERVIDOR
-  {path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},
+  { path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},
   
   //Rutas para Admnistracion
-  {path: 'AdminCygnus', component:BodyAdminCygnusComponent,canActivate:[AuthGuard]},
-  {path: 'NewUserCygnus', component:NewUserCygnusComponent,canActivate:[AuthGuard]},
-  {path: 'ListUserCygnus',component:ListUsersCygnusComponent,canActivate:[AuthGuard]},
-  {path: 'ProcessCygnus', component:ProcessCygnusComponent,canActivate:[AuthGuard]}
+  { path: 'AdminCygnus', component:BodyAdminCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'NewUserCygnus', component:NewUserCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'ListUserCygnus',component:ListUsersCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'ProcessCygnus', component:ProcessCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'MonitorUserCygnus', component:MonitorUserCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'ResetPasswordCygnusComponent', component:ResetPasswordCygnusComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

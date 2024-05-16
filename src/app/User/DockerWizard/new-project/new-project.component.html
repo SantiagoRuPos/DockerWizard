@@ -14,7 +14,7 @@
             <div class="mb-3">
                 <label for="Nombre_Proyecto_Acronimo" class="form-label">Nombre Proyecto Acronimo</label>
                 <input type="text" class="form-control" id="Nombre_Proyecto_Acronimo" formControlName="Nombre_Proyecto_Acronimo" placeholder="Nombre Corto del proyecto">
-                <small class="form-text text-muted" *ngIf="projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['pattern'] || projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['minlength'] || projectForm.get('nombreAcronimo')?.errors?.['maxlength']">
+                <small class="form-text text-muted" *ngIf="projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['pattern'] || projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['minlength'] || projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['maxlength']">
                     <span *ngIf="projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['pattern']">El nombre corto solo puede tener letras y numeros</span>
                     <span *ngIf="projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['minlength'] || projectForm.get('Nombre_Proyecto_Acronimo')?.errors?.['maxlength']">El nombre corto debe tener entre 4 y 8 caracteres.</span>
                   </small>

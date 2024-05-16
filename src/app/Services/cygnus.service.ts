@@ -21,6 +21,9 @@ export class CygnusService {
   }
   ProcessCygnus():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/ProcessCygnus`);
+  }
+  monitorUsers():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/MonitorUserCygnus`);
 
   }
 }
