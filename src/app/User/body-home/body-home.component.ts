@@ -18,7 +18,7 @@ export class BodyHomeComponent implements OnInit{
   }
 
   RutaRapidaNuevoUsuarioCygnus(){
-    this.router.navigate(['/registro-nuevo-usuario']); 
+    this.router.navigate(['/NewUserCygnus']); 
 
   }
   RutaRapidaNuevoProyectoDockerWizard(){

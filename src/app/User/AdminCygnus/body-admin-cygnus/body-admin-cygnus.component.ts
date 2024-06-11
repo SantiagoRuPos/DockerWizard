@@ -19,4 +19,10 @@ export class BodyAdminCygnusComponent {
   MonitorUserCygnus(){
     this.router.navigate(['/MonitorUserCygnus']);
   }
+  ResetPasswordCygnus(){
+    this.router.navigate(['/ResetPasswordCygnus']);
+  }
+  PermissionsUserCygnusComponent(){
+    this.router.navigate(['/PermissionsUserCygnus']);
+  }
 }

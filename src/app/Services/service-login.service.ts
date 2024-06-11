@@ -9,14 +9,12 @@ import internal from 'stream';
   providedIn: 'root'
 })
 export class ServiceLoginService {
-  private apiUrl = 'http://localhost:3000'; // Cambia esto por la URL de tu backend
+  private apiUrl = 'http://localhost:17223'; // Cambia esto por la URL de tu backend
 
   constructor(private http: HttpClient) {
 
   }
-  listarImagenesDocker(): Observable<any> {
-    return this.http.get('http://localhost:3000/listar-imagenes-docker');
-  }
+ 
 
 
 

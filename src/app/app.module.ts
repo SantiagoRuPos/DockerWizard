@@ -39,6 +39,7 @@ import { ListUsersCygnusComponent } from './User/AdminCygnus/list-users-cygnus/l
 import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/process-cygnus.component';
 import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-cygnus/reset-password-cygnus.component';
 import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
+import { PermissionsUserCygnusComponent } from './User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygn
     ListUsersCygnusComponent,
     ProcessCygnusComponent,
     ResetPasswordCygnusComponent,
-    MonitorUserCygnusComponent
+    MonitorUserCygnusComponent,
+    PermissionsUserCygnusComponent
     
  
   

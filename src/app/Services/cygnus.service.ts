@@ -9,7 +9,7 @@ import internal from 'stream';
   providedIn: 'root'
 })
 export class CygnusService {
-  private apiUrl = 'http://localhost:3000'; // Cambia esto por la URL de tu backend
+  private apiUrl = 'http://localhost:17223'; // Cambia esto por la URL de tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -24,6 +24,16 @@ export class CygnusService {
   }
   monitorUsers():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/MonitorUserCygnus`);
-
   }
+  ResetPasswordCygnus(Data : {Nombre_Usuario_Cygnus:String,Password_Usuario:string}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/ResetPasswordCygnus`,Data);
+  }
+  AsignarPermiso(Data : {Nombre_Usuario_Cygnus:String,Grupo_Cygnus:string}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/PermisosCygnus`,Data);
+  }
+  QuitarPermiso(Data : {Nombre_Usuario_Cygnus:String,Grupo_Cygnus:string}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/QuitarPermiso`,Data);
+  }
+  
+  
 }

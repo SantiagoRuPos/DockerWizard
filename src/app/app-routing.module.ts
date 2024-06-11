@@ -31,6 +31,8 @@ import { ListUsersCygnusComponent } from './User/AdminCygnus/list-users-cygnus/l
 import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/process-cygnus.component';
 import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-cygnus/reset-password-cygnus.component';
 import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
+import { PermissionsUserCygnusComponent } from "./User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -56,7 +58,9 @@ const routes: Routes = [
   { path: 'ListUserCygnus',component:ListUsersCygnusComponent,canActivate:[AuthGuard]},
   { path: 'ProcessCygnus', component:ProcessCygnusComponent,canActivate:[AuthGuard]},
   { path: 'MonitorUserCygnus', component:MonitorUserCygnusComponent,canActivate:[AuthGuard]},
-  { path: 'ResetPasswordCygnusComponent', component:ResetPasswordCygnusComponent,canActivate:[AuthGuard]}
+  { path: 'ResetPasswordCygnus', component:ResetPasswordCygnusComponent,canActivate:[AuthGuard]},
+  { path: 'PermissionsUserCygnus', component:PermissionsUserCygnusComponent,canActivate:[AuthGuard]}
+
 ];
 
 @NgModule({
