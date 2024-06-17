@@ -32,6 +32,7 @@ import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/proces
 import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-cygnus/reset-password-cygnus.component';
 import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
 import { PermissionsUserCygnusComponent } from "./User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component";
+import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-services/status-docker-services.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -59,7 +60,10 @@ const routes: Routes = [
   { path: 'ProcessCygnus', component:ProcessCygnusComponent,canActivate:[AuthGuard]},
   { path: 'MonitorUserCygnus', component:MonitorUserCygnusComponent,canActivate:[AuthGuard]},
   { path: 'ResetPasswordCygnus', component:ResetPasswordCygnusComponent,canActivate:[AuthGuard]},
-  { path: 'PermissionsUserCygnus', component:PermissionsUserCygnusComponent,canActivate:[AuthGuard]}
+  { path: 'PermissionsUserCygnus', component:PermissionsUserCygnusComponent,canActivate:[AuthGuard]},
+
+  //Rutas de automatizacion de Dockers
+  {path: 'StatusServicesDocker', component:StatusDockerServicesComponent,canActivate:[AuthGuard]}
 
 ];
 

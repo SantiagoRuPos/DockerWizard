@@ -1,7 +1,68 @@
-<p>body-auto-docker works!</p>
-<app-menu-auto-docker></app-menu-auto-docker>
 
+
+<div class="container">
+  <div class="container" style="margin-bottom: 100px;">
+    <app-menu-auto-docker></app-menu-auto-docker>
+ </div>
+ <div class="container">
+   <h3 style="display: flex; align-items: center;">
+     Rutas Rapidas 
+     <span class="material-symbols-outlined" matTooltip="Las Rutas Rápidas son atajos que te llevarán a las rutas más importantes y principales de manera más rápida, permitiéndote llegar a tu destino de manera más eficiente." style="margin-left: 5px; vertical-align: middle;">
+         <mat-icon class="material-icons" style="margin-top: 2px;">help</mat-icon>
+     </span>
+ </h3>
+   <div class="section-container">
+     <div class="card" id="con">
+       <div class="card-body">
+         <h5 class="card-title">Estado de los servicios Dockers</h5>
+         <p class="card-text">Monitorea el estado actual de los servicios Dockers de Cygnus.</p>
+         <a    class="btn btn-primary">Continuar</a>
+       </div>
+     </div>
+     <div class="card" id="con">
+      <div class="card-body">
+        <h5 class="card-title">Nuevo Docker</h5>
+        <p class="card-text">Crea un nuevo servicio Docker en Cygnus</p>
+        <a  class="btn btn-primary">Continuar</a>
+      </div>
+    </div>
+    <div class="card" id="con">
+      <div class="card-body">
+        <h5 class="card-title">Nuevas Rutas</h5>
+        <p class="card-text">Registra una nueva Ruta de un proyecto en Cygnus</p>
+        <a  class="btn btn-primary">Continuar</a>
+      </div>
+    </div>
+    <div class="card" id="con">
+      <div class="card-body">
+        <h5 class="card-title">Subir Servicios</h5>
+        <p class="card-text">Sube los servcios de Docker.</p>
+        <a class="btn btn-primary">Continuar</a>
+      </div>
+    </div>
+     <div class="card" id="con">
+       <div class="card-body">
+         <h5 class="card-title">Monitoreo Logs</h5>
+         <p class="card-text">Monitorea los logs del contenedor Docker</p>
+         <a  class="btn btn-primary">Continuar</a>
+       </div>
+     </div>
+    
+     <div class="card" id="con">
+       <div class="card-body">
+         <h5 class="card-title">BackUp</h5>
+         <p class="card-text">Realiza copias de seguirdad de los servicios esenciales</p>
+         <a href="#" class="btn btn-primary">Continuar</a>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
 
 <div class="col-md-9">
     <router-outlet></router-outlet>
   </div>
+
+
+
+

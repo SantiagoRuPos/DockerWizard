@@ -41,6 +41,8 @@ import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-
 import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
 import { PermissionsUserCygnusComponent } from './User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component';
 
+import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-services/status-docker-services.component';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { PermissionsUserCygnusComponent } from './User/AdminCygnus/permissions-u
     ProcessCygnusComponent,
     ResetPasswordCygnusComponent,
     MonitorUserCygnusComponent,
-    PermissionsUserCygnusComponent
+    PermissionsUserCygnusComponent,
+    StatusDockerServicesComponent
     
  
   

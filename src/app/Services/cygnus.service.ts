@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { of } from 'rxjs';
-import internal from 'stream';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CygnusService {
-  private apiUrl = 'http://localhost:17223'; // Cambia esto por la URL de tu backend
+  private apiUrl = 'http://localhost:8991'; // Cambia esto por la URL de tu backend
 
   constructor(private http: HttpClient) {}
 
