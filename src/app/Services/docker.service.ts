@@ -9,4 +9,8 @@ import { Observable } from 'rxjs';
 export class DockerService {
   private apiUrl = 'http://localhost:8991'; 
   constructor(private http: HttpClient) {}
+
+  StateContainers():Observable <any>{
+    return this.http.get<any>(`${this.apiUrl}/StateContainers`);
+  }
 }

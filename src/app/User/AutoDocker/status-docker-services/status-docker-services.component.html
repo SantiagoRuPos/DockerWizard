@@ -1,1 +1,41 @@
-<p>status-docker-services works!</p>
+<div class="container">
+<div class="container" style="margin-bottom: 100px;">
+    <app-menu-auto-docker></app-menu-auto-docker>
+ </div>
+ <h1>Contenedores Docker</h1>
+ <table>
+   <thead>
+     <tr>
+       <th>ID</th>
+       <th>Imagen</th>
+       <th>Comando</th>
+       <th>Creado en</th>
+       <th>Estado</th>
+       <th>Puertos</th>
+       <th>Nombres</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let container of containers">
+       <td>{{ container.id }}</td>
+       <td>{{ container.image }}</td>
+       <td>{{ container.command }}</td>
+       <td>{{ container.createdAt }}</td>
+       <td>{{ container.status }}</td>
+       <td>{{ container.ports }}</td>
+       <td>{{ container.names }}</td>
+     </tr>
+   </tbody>
+ </table>
+
+ <div class="container text-center">
+    <div class="example-button-row">
+      
+      <button class="btn btn-primary mt-2" (click)="consultar()">
+        Consultar
+      </button>
+    </div>
+  </div>
+  
+
+</div>
