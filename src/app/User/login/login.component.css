@@ -1,0 +1,24 @@
+.input-group-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+  }
+
+  .bi, .material-symbols-outlined {
+    font-size: 1rem; /* Ajusta el tamaño de los íconos aquí */
+  }
+
+  .text-primary {
+    color: #007bff !important;
+    cursor: pointer;
+  }
+
+  .text-primary:hover {
+    text-decoration: underline;
+  }
+
+  .form-control:focus {
+    border-color: #F29A2E;
+    box-shadow: 0 0 0 0.2rem rgba(242, 154, 46, 0.25);
+  }

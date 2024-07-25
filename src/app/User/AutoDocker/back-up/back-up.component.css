@@ -1,0 +1,13 @@
+.card {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+  }
+  
+  .card-title {
+    color: #007bff;
+  }
+  
+  .card-text {
+    color: #333;
+  }
+  

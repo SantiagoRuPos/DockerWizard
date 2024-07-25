@@ -16,7 +16,7 @@
        <div class="card-body">
          <h5 class="card-title">Estado de los servicios Dockers</h5>
          <p class="card-text">Monitorea el estado actual de los servicios Dockers de Cygnus.</p>
-         <a    class="btn btn-primary">Continuar</a>
+         <a  (click)="StatusServicesDocker()"  class="btn btn-primary">Continuar</a>
        </div>
      </div>
      <div class="card" id="con">
@@ -37,14 +37,14 @@
       <div class="card-body">
         <h5 class="card-title">Subir Servicios</h5>
         <p class="card-text">Sube los servcios de Docker.</p>
-        <a class="btn btn-primary">Continuar</a>
+        <a class="btn btn-primary" (click)="DockerUp()">Continuar</a>
       </div>
     </div>
      <div class="card" id="con">
        <div class="card-body">
          <h5 class="card-title">Monitoreo Logs</h5>
          <p class="card-text">Monitorea los logs del contenedor Docker</p>
-         <a  class="btn btn-primary">Continuar</a>
+         <a  class="btn btn-primary" (click)="DockerLogs()" >Continuar</a>
        </div>
      </div>
     
@@ -52,7 +52,7 @@
        <div class="card-body">
          <h5 class="card-title">BackUp</h5>
          <p class="card-text">Realiza copias de seguirdad de los servicios esenciales</p>
-         <a href="#" class="btn btn-primary">Continuar</a>
+         <a  class="btn btn-primary" (click)="BackUpDocker()">Continuar</a>
        </div>
      </div>
    </div>

@@ -18,7 +18,7 @@ export class NewProjectComponent implements OnInit {
   Usuario_Registrador_Proyecto: any; 
   Rol_Proyecto = ['Proyecto de Investigación', 'Proyecto de grado'];//ya hay table se debe de llenar automatico con los datos de la bse de datos
   Cargo_Institucional_Lider = ['Profesor','Estudiante','Investigador']; ///Tabla existente
-  Programa_Academico_Proyecto = ['Ingeniería Electrónica','Ingeniería Sistemas','Ingeniería Industrial','Tecnologiá en Electronica Industrial', 'Tecnología en Sistemas de Información','Tecnología en Producción Industrial']; //tabla existente
+  Programa_Academico_Proyecto = ['Ingeniería Electrónica','Ingeniería Industrial','Ingeniería Sistemas','Tecnologiá en Electronica Industrial', 'Tecnología en Sistemas de Información','Tecnología en Producción Industrial']; //tabla existente
   constructor(private formBuilder: FormBuilder, private UsuarioInfoService:UsuarioInfoService, private ServiceLoginService: ServiceLoginService) { 
     
      this.projectForm = this.formBuilder.group({

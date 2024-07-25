@@ -1,47 +1,42 @@
 <nav class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <h2 class="navbar-brand" ><i class="">Administracion Cygnus</i></h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            
-            <li class="nav-item">
-              <a class="nav-link" (click)="NewUserCygnus()"> <i class="bi bi-person"></i>Crear Nuevo Usuario Cygnus  </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="ListUserCygnus()"> <i class="bi bi-server"></i>Listar Usuarios de Cygnus  </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"(click)="ProcessCygnus()" > <i class="bi bi-gear"></i> Procesos  de Cygnus</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Resablecer Contrseña de usuario de Cygnus</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Permisos usuario Cygnus</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="MonitorUserCygnus()">Monitorear Usuarios Cygnus</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="Atras()"><i class="bi bi-door-open"></i> Atras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"(click)="MenuPrincipal()"><i class="bi bi-door-open"></i> Menu Principal</a>
-              </li>
-          </ul>
-            
-        </div>
+  <div class="container-fluid">
+    <h2 class="navbar-brand"><i class="bi bi-cogs"></i> Administración Cygnus</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dashboard <i class="bi bi-menu-button-wide"></i></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" (click)="NewUserCygnus()"><i class="bi bi-person-plus"></i> Crear Nuevo Usuario Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="ListUserCygnus()"><i class="bi bi-person-lines-fill"></i> Listar Usuarios de Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="ProcessCygnus()"><i class="bi bi-gear"></i> Procesos de Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-lock"></i> Restablecer Contraseña de Usuario de Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-key"></i> Permisos Usuario Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="MonitorUserCygnus()"><i class="bi bi-eye"></i> Monitorear Usuarios Cygnus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="Atras()"><i class="bi bi-arrow-left"></i> Atrás</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="MenuPrincipal()"><i class="bi bi-house"></i> Menú Principal</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
-  
-  
-  
+  </div>
+</nav>

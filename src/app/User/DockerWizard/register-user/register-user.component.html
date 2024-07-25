@@ -22,7 +22,7 @@
         </div>
        
         <div class="mb-3">
-          <label for="Correo_Institucional_Usuario" class="form-label">Correo líder del proyecto</label>
+          <label for="Correo_Institucional_Usuario" class="form-label">Correo</label>
           <input type="email" class="form-control" id="Correo_Institucional_Usuario" formControlName="Correo_Institucional_Usuario" placeholder="nombre@uniajc.edu.co" [class.is-invalid]="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
           <div class="invalid-feedback" *ngIf="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
               El correo electrónico no es válido.

@@ -6,9 +6,12 @@ import Swal from 'sweetalert2';
   templateUrl: './status-docker-services.component.html',
   styleUrl: './status-docker-services.component.css'
 })
-export class StatusDockerServicesComponent  {
+export class StatusDockerServicesComponent implements OnInit {
   containers: any[] = [];
 constructor(private DockerService:DockerService){}
+  ngOnInit(): void {
+    this.consultar();
+  }
 
 
 consultar(){
@@ -29,16 +32,16 @@ consultar(){
       });
       Toast.fire({
         icon: "success",
-        title: "Usuarios de Cygnus Listados"
+        title: "Contenedores de Cygnus Listados"
       });
     },
     (error) => {
       Swal.fire({
         icon: 'error',
         title: 'Error de al consultar',
-        text: 'Hubo un problema al consultar los usuarios con Cygnus. Por favor, inténtalo de nuevo. Si el error persiste, revisa el terminal o reporta el fallo.'
+        text: 'Hubo un problema al consultar los Contenedores de Cygnus. Por favor, inténtalo de nuevo. Si el error persiste, revisa el terminal o reporta el fallo.'
       });
-      console.error('Error al obtener la lista de usuarios:', error);
+      console.error('Error al obtener la lista de Contenedores:', error);
     }
   )
 }

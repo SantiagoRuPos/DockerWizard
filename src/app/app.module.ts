@@ -42,6 +42,11 @@ import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygn
 import { PermissionsUserCygnusComponent } from './User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component';
 
 import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-services/status-docker-services.component';
+import { BackUpComponent } from './User/AutoDocker/back-up/back-up.component';
+import { DockerUpComponent } from './User/AutoDocker/docker-up/docker-up.component';
+import { DockerLogsComponent } from './User/AutoDocker/docker-logs/docker-logs.component';
+import { MonitoringImagesComponent } from './User/AutoDocker/monitoring-images/monitoring-images.component';
+import { NewRutaComponent } from './User/AutoDocker/new-ruta/new-ruta.component';
 
 
 @NgModule({
@@ -70,7 +75,12 @@ import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-s
     ResetPasswordCygnusComponent,
     MonitorUserCygnusComponent,
     PermissionsUserCygnusComponent,
-    StatusDockerServicesComponent
+    StatusDockerServicesComponent,
+    BackUpComponent,
+    DockerUpComponent,
+    DockerLogsComponent,
+    MonitoringImagesComponent,
+    NewRutaComponent
     
  
   

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="container" style="margin-bottom: 100px;">
+      <app-menu-auto-docker></app-menu-auto-docker>
+    </div>
+    <h1>Ver Logs de Contenedor Docker</h1>
+    <form [formGroup]="Logs" (ngSubmit)="LogsContainer()">
+      <div>
+        <label for="containerName">Nombre del Contenedor </label>
+        <input type="text" formControlName="containerName" placeholder="Nombre del Contenedor">
+        <small class="form-text text-muted" *ngIf="Logs.get('containerName')?.errors?.['pattern']">
+          El nombre del contenedor solo puede contener letras y números.
+        </small>
+      </div>
+ 
+      <button type="submit">Obtener Logs</button>
+    </form>
+    <div *ngIf="logs">
+      <h3>Logs del Contenedor:</h3>
+      <pre>{{ logs }}</pre>
+    </div>
+  </div>
+  

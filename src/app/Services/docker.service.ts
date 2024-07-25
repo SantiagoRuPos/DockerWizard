@@ -13,4 +13,18 @@ export class DockerService {
   StateContainers():Observable <any>{
     return this.http.get<any>(`${this.apiUrl}/StateContainers`);
   }
+  BackUp():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/BackUp`);
+  }
+  DockerUp():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/DockerUp`);
+  }
+  DockerLogs(Logs : {containerName:String}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/DockerLogs`,Logs);
+  }
+  MonitoringImages():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/MonitoringImages`);
+  }
+  
+
 }

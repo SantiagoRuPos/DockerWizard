@@ -1,0 +1,3 @@
+.navbar-nav, .nav-link {
+    user-select: none; /* Evita que el texto sea seleccionable */
+  }

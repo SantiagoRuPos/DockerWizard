@@ -19,8 +19,12 @@ import { NewProjectComponent } from './User/DockerWizard/new-project/new-project
 
 //Rutas Docker
 import {BodyAutoDockerComponent} from './User/AutoDocker/body-auto-docker/body-auto-docker.component';
-
-
+import {DockerUpComponent} from './User/AutoDocker/docker-up/docker-up.component';
+import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-services/status-docker-services.component';
+import { BackUpComponent } from './User/AutoDocker/back-up/back-up.component';
+import {DockerLogsComponent} from './User/AutoDocker/docker-logs/docker-logs.component';
+import { MonitoringImagesComponent } from './User/AutoDocker/monitoring-images/monitoring-images.component';
+import {NewRutaComponent} from './User/AutoDocker/new-ruta/new-ruta.component';
 //RUATAS
 import {BodyAdminCygnusComponent} from './User/AdminCygnus/body-admin-cygnus/body-admin-cygnus.component';
 import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
@@ -32,7 +36,7 @@ import { ProcessCygnusComponent } from './User/AdminCygnus/process-cygnus/proces
 import { ResetPasswordCygnusComponent } from './User/AdminCygnus/reset-password-cygnus/reset-password-cygnus.component';
 import { MonitorUserCygnusComponent } from './User/AdminCygnus/monitor-user-cygnus/monitor-user-cygnus.component';
 import { PermissionsUserCygnusComponent } from "./User/AdminCygnus/permissions-user-cygnus/permissions-user-cygnus.component";
-import { StatusDockerServicesComponent } from './User/AutoDocker/status-docker-services/status-docker-services.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -49,9 +53,6 @@ const routes: Routes = [
   { path: 'ListProjects',component:ListProjectsComponent,canActivate:[AuthGuard]},
   { path: 'StatusProject',component:StatusProjectComponent,canActivate:[AuthGuard]},
 
-
-  //Rutas para AUTOMATIZACION DE LOS DOCKERS DEL SERVIDOR
-  { path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},
   
   //Rutas para Admnistracion
   { path: 'AdminCygnus', component:BodyAdminCygnusComponent,canActivate:[AuthGuard]},
@@ -63,8 +64,13 @@ const routes: Routes = [
   { path: 'PermissionsUserCygnus', component:PermissionsUserCygnusComponent,canActivate:[AuthGuard]},
 
   //Rutas de automatizacion de Dockers
-  {path: 'StatusServicesDocker', component:StatusDockerServicesComponent,canActivate:[AuthGuard]}
-
+  { path: 'AutoDocker', component:BodyAutoDockerComponent,canActivate:[AuthGuard]},
+  {path: 'StatusServicesDocker', component:StatusDockerServicesComponent,canActivate:[AuthGuard]},
+  {path: 'BackUpDocker',component:BackUpComponent,canActivate:[AuthGuard]},
+  {path: 'DockerUp', component:DockerUpComponent,canActivate:[AuthGuard]},
+  {path: 'DockerLogs', component:DockerLogsComponent,canActivate:[AuthGuard]},
+  {path: 'MonitoringImages', component:MonitoringImagesComponent,canActivate:[AuthGuard]},
+  {path: 'NewRoute',component:NewRutaComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

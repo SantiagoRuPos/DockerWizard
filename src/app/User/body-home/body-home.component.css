@@ -1,78 +1,42 @@
-.box-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
+/* Estilos para las tarjetas */
 .card {
-   width: 20rem;
-    margin: 10px 0; /* Espacio vertical entre las tarjetas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    border-radius: 10px;
+  width: auto; /* Ajustar al contenido */
+  max-width: 30rem; /* Ancho máximo si se necesita */
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border-radius: 10px;
+  background-color: #435C73; /* Color de fondo para las tarjetas */
+  color: #fff; /* Color de texto para el contenido */
 }
 
+/* Efecto hover para las tarjetas */
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #2C4A61; /* Color ligeramente más oscuro para el hover */
 }
 
-.spacer {
-    width: 100%;
-    height: 20px; /* Espacio vertical entre grupos de tarjetas */
-}
-#con{
-    float: left;
-    margin-top: 20px;
-    margin-left: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/* Estilos para los botones */
+.btn {
+  background-color: #1EB7D9; /* Color de fondo del botón */
+  border: none; /* Eliminar borde predeterminado */
+  color: #fff; /* Color del texto */
 }
 
+/* Efecto hover para los botones */
+.btn:hover {
+  background-color: #F29A2E; /* Color de fondo del botón al pasar el puntero */
+}
+
+/* Configuración del contenedor de las tarjetas en 2x2 */
 .section-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .card {
-    width: 30rem; /* Ajustar el ancho según el tamaño deseado */
-    margin: 10px 0; /* Espacio vertical entre las tarjetas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    border-radius: 10px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Eliminar el espacio entre grupos de tarjetas */
-  .spacer {
-    display: none;
-  }
-  
-  #con {
-    float: left;
-    margin-top: 20px;
-    margin-left: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  .section-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px; /* Space between cards */
-  }
-  
-  .card {
-    width: auto; /* Allow cards to adjust to content */
-    max-width: 30rem; /* Set a maximum width if needed */
-    margin: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    border-radius: 10px;
-  }
-  
-  /* rest of the CSS styles remain the same */
-  .mat-tooltip {
-    font-size: 14px;
-    max-width: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 10px; /* Espacio entre tarjetas */
+}
+
+/* Tooltip */
+.mat-tooltip {
+  font-size: 14px;
+  max-width: 200px;
 }

@@ -1,48 +1,45 @@
 <nav class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <h2 class="navbar-brand" ><i class="">Administracion de Dockers de Cygnus</i></h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            
-            <li class="nav-item">
-              <a class="nav-link" > <i class="bi bi-person"></i>Estado  contenedores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" > <i class="bi bi-server"></i>Logs </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"> <i class="bi bi-gear"></i>Docker Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Monitorear Imagenes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Backup</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Nuevas Rutas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Nuevas Docker</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"><i class="bi bi-door-open"></i> Atras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"><i class="bi bi-door-open"></i> Menu Principal</a>
-              </li>
-          </ul>
-            
-        </div>
+  <div class="container-fluid">
+    <h2 class="navbar-brand"><i class="bi bi-boxes"></i> Administración de Dockers de Cygnus</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" (click)="StatusServicesDocker()"><i class="bi bi-boxes"></i> Estado Contenedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="DockerLogs()"><i class="bi bi-file-earmark-text"></i> Logs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="DockerUp()"><i class="bi bi-play-circle"></i> Docker Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="MonitoringImages()"><i class="bi bi-images"></i> Monitorear Imágenes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="BackUpDocker()"><i class="bi bi-hdd"></i> Backup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-signpost"></i> Nuevas Rutas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-box"></i> Nuevas Docker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="Atras()"><i class="bi bi-arrow-left"></i> Atrás</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-house"></i> Menú Principal</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
-  
+  </div>
+</nav>

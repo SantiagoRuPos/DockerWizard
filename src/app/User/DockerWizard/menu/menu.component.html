@@ -1,57 +1,54 @@
-
 <nav class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <h2 class="navbar-brand" ><i class="">Menu de Administración DockerWizard</i></h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link" >Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="NuevoUsuarioDockerWizard()">Registro Nuevo Usuario</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="BuscarUsuariosDockerWizard()">Buscar Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="StatusUsersDockerWizard()">Activar Usuario</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="ResetPassword()" >Restablecer credenciales Usuario</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="RegsitroProject()">Registrar Nuevo Proyecto</a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link" (click)="ListsProyects()" >Buscar Proyectos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="StatusProject()" >Inhabilitar Proyectos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  >Generar nuevo reporte de Fallo del sistema</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  >Reportes de Fallos del sistema</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="PrincipalDockerWizard()" >Atras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="volver()" >Menu Principal</a>
-              </li>
-          </ul>
-
-        </div>
+  <div class="container-fluid">
+    <h2 class="navbar-brand"><i class="bi bi-cogs"></i> Menu de Administración DockerWizard</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-person"></i> Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="NuevoUsuarioDockerWizard()"><i class="bi bi-person-plus"></i> Registro Nuevo Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="BuscarUsuariosDockerWizard()"><i class="bi bi-search"></i> Buscar Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="StatusUsersDockerWizard()"><i class="bi bi-person-check"></i> Activar Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="ResetPassword()"><i class="bi bi-key"></i> Restablecer credenciales Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="RegsitroProject()"><i class="bi bi-folder-plus"></i> Registrar Nuevo Proyecto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="ListsProyects()"><i class="bi bi-folder2"></i> Buscar Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="StatusProject()"><i class="bi bi-folder-x"></i> Inhabilitar Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-exclamation-triangle"></i> Generar nuevo reporte de Fallo del sistema</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="bi bi-file-earmark-text"></i> Reportes de Fallos del sistema</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="PrincipalDockerWizard()"><i class="bi bi-arrow-left"></i> Atrás</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="volver()"><i class="bi bi-house"></i> Menú Principal</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
