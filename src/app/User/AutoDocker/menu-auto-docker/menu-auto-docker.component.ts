@@ -27,4 +27,7 @@ export class MenuAutoDockerComponent {
   MonitoringImages(){
     this.router.navigate(['/MonitoringImages']);
     }
+    NewRoute(){
+      this.router.navigate(['/NewRoute']);
+    }
 }

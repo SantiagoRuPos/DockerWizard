@@ -25,6 +25,11 @@ export class DockerService {
   MonitoringImages():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/MonitoringImages`);
   }
-  
 
+  NewRuta(data:{NmaeRuta:String,dockerName:String}): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/NewRuta`,data);
+  }
+  DockerWeb(dockerWebForm:{NombreContenedor:any,image:any,volumnes:any,dockerName:any }): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/NewDockerWeb`,dockerWebForm);
+  }
 }

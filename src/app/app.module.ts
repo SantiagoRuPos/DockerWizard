@@ -47,7 +47,11 @@ import { DockerUpComponent } from './User/AutoDocker/docker-up/docker-up.compone
 import { DockerLogsComponent } from './User/AutoDocker/docker-logs/docker-logs.component';
 import { MonitoringImagesComponent } from './User/AutoDocker/monitoring-images/monitoring-images.component';
 import { NewRutaComponent } from './User/AutoDocker/new-ruta/new-ruta.component';
+import { NewDockerComponent } from './User/AutoDocker/new-docker/new-docker.component';
 
+
+import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -80,7 +84,8 @@ import { NewRutaComponent } from './User/AutoDocker/new-ruta/new-ruta.component'
     DockerUpComponent,
     DockerLogsComponent,
     MonitoringImagesComponent,
-    NewRutaComponent
+    NewRutaComponent,
+    NewDockerComponent
     
  
   
@@ -96,7 +101,8 @@ import { NewRutaComponent } from './User/AutoDocker/new-ruta/new-ruta.component'
     MatDividerModule,
     MatIconModule,
     BrowserAnimationsModule,
-    MatTooltipModule 
+    MatTooltipModule ,
+    MatExpansionModule
 
   ],
   

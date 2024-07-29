@@ -25,6 +25,8 @@ import { BackUpComponent } from './User/AutoDocker/back-up/back-up.component';
 import {DockerLogsComponent} from './User/AutoDocker/docker-logs/docker-logs.component';
 import { MonitoringImagesComponent } from './User/AutoDocker/monitoring-images/monitoring-images.component';
 import {NewRutaComponent} from './User/AutoDocker/new-ruta/new-ruta.component';
+import {NewDockerComponent} from './User/AutoDocker/new-docker/new-docker.component';
+
 //RUATAS
 import {BodyAdminCygnusComponent} from './User/AdminCygnus/body-admin-cygnus/body-admin-cygnus.component';
 import { ResetPasswordUserComponent } from './User/DockerWizard/reset-password-user/reset-password-user.component';
@@ -70,7 +72,8 @@ const routes: Routes = [
   {path: 'DockerUp', component:DockerUpComponent,canActivate:[AuthGuard]},
   {path: 'DockerLogs', component:DockerLogsComponent,canActivate:[AuthGuard]},
   {path: 'MonitoringImages', component:MonitoringImagesComponent,canActivate:[AuthGuard]},
-  {path: 'NewRoute',component:NewRutaComponent,canActivate:[AuthGuard]}
+  {path: 'NewRoute',component:NewRutaComponent,canActivate:[AuthGuard]},
+  {path: 'NewDocker', component:NewDockerComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

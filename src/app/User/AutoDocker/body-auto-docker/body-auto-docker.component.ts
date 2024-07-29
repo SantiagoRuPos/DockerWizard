@@ -22,5 +22,7 @@ export class BodyAutoDockerComponent {
   DockerLogs(){
     this.router.navigate(['/DockerLogs']);
   }
-
+  NewRoute(){
+    this.router.navigate(['/NewRoute']);
+  }
 }
