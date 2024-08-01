@@ -19,9 +19,15 @@ export class NewDockerComponent {
 
   imageOptions = [
     { label: 'nginx', value: 'nginx' },
-    { label: 'httpd', value: 'httpd' },
-    { label: 'mysql:5.7', value: 'mysql:5.7' },
-    { label: 'phpmyadmin/phpmyadmin', value: 'phpmyadmin/phpmyadmin' }
+       { label: 'mysql:5.6e', value: 'mysql:5.7' },
+    { label: 'phpmyadmin/phpmyadmin', value: 'phpmyadmin/phpmyadmin' },
+    { label: 'php', value: 'php:7.4-apache' }
+  ];
+  Phpmyadmin = [
+    { label: 'nginx', value: 'nginx' },
+       { label: 'mysql:5.6e', value: 'mysql:5.7' },
+    { label: 'phpmyadmin/phpmyadmin', value: 'phpmyadmin/phpmyadmin' },
+    { label: 'php', value: 'php:7.4-apache' }
   ];
 
   constructor(private fb: FormBuilder,private DockerService:DockerService) {
@@ -34,28 +40,28 @@ export class NewDockerComponent {
     });
 
     this.dockerMysqlPhpmyadminForm = this.fb.group({
-      nombreContenedor: [''],
-      image: [this.imageOptions[2].value],  // valor por defecto
-      MYSQL_DATABASE: [''],
-      MYSQL_USER: [''],
-      MYSQL_PASSWORD: [''],
-      MYSQL_ROOT_PASSWORD: [''],
-      volumenes: [''],
-      dockerName: [''],
-      nombreContenedorPHPmyadmin: [''],
-      imagePHPmyadmin: [this.imageOptions[3].value],  // valor por defecto
-      dockerNamephpmyadmin: [''],
-      PMA_HOST: [''],
-      depends_on: ['']
+      NombreContenedor: ['',[Validators.required]],
+      image: [this.imageOptions[2].value,[Validators.required]],  // valor por defecto
+      MYSQL_DATABASE: ['',[Validators.required]],
+      MYSQL_USER: ['',[Validators.required]],
+      MYSQL_PASSWORD: ['',[Validators.required]],
+      MYSQL_ROOT_PASSWORD: ['',[Validators.required]],
+      volumenes: ['',[Validators.required]],
+      dockerName: ['',[Validators.required]],
+      NombreContenedorPHPmyadmin: ['',[Validators.required]],
+      imagePHPmyadmin: [this.Phpmyadmin[3].value,[Validators.required]],  // valor por defecto
+      dockerNamephpmyadmin: ['',[Validators.required]],
+      PMA_HOST: ['',[Validators.required]],
+      depends_on: ['',[Validators.required]]
     });
 
     this.dockerWebMysqlForm = this.fb.group({
-      nombreContenedorWEB: [''],
+      NombreContenedorWEB: [''],
       imageWEB: [this.imageOptions[0].value],  // valor por defecto
       volumenesWEB: [''],
       dockerNameWEB: [''],
       linksWEB: [''],
-      nombreContenedorMYSQL: [''],
+      NombreContenedorMYSQL: [''],
       imageMYSQL: [this.imageOptions[2].value],  // valor por defecto
       MYSQL_DATABASE: [''],
       MYSQL_USER: [''],
@@ -63,8 +69,8 @@ export class NewDockerComponent {
       MYSQL_ROOT_PASSWORD: [''],
       volumenesMYSQL: [''],
       dockerNameMYSQL: [''],
-      nombreContenedorPHPmyadmin: [''],
-      imagePHPmyadmin: [this.imageOptions[3].value],  // valor por defecto
+      NombreContenedorPHPmyadmin: [''],
+      imagePHPmyadmin: [this.Phpmyadmin[3].value],  // valor por defecto
       dockerNamephpmyadmin: [''],
       PMA_HOST: [''],
       depends_on: ['']
@@ -98,25 +104,112 @@ export class NewDockerComponent {
               toast.onmouseleave = Swal.resumeTimer;
             }
           });
-        this.resetForm();
+          this.Mensaje();
+        this.resetForm1();
+        
         });
       }
     )
    }
   }
+  Mensaje(){
+    Swal.fire({
+      icon: 'info',
+      title: 'Ejecuta Docker nuevamente',
+      text: 'Recuerda reiniciar el servicio de Docker para desplegar los nuevos servicios. Asegúrate de realizar una copia de seguridad.'
+    }).then(() => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+    });
+  }
 
   onSubmitDockerMysqlPhpmyadmin(): void {
     console.log(this.dockerMysqlPhpmyadminForm.value);
-    // Lógica de manejo de datos
+    if (this.dockerMysqlPhpmyadminForm.valid) {
+     this.DockerService.DockerMysql(this.dockerMysqlPhpmyadminForm.value).subscribe(
+       response => {
+         this.dockerWebForm = response.dockerWebForm;
+         console.log("Docker web : ",response);
+         Swal.fire({
+           icon: 'success',
+           title: 'Docker Generado',
+           text: 'Se ha generado el nuevo docker exitosamente.'
+         }).then(() => {
+           const Toast = Swal.mixin({
+             toast: true,
+             position: "top-end",
+             showConfirmButton: false,
+             timer: 3000,
+             timerProgressBar: true,
+             didOpen: (toast) => {
+               toast.onmouseenter = Swal.stopTimer;
+               toast.onmouseleave = Swal.resumeTimer;
+             }
+           });
+           this.Mensaje();
+         this.resetForm2();
+         
+         });
+       }
+     )
+    }
+
   }
 
   onSubmitDockerWebMysql(): void {
     console.log(this.dockerWebMysqlForm.value);
+    if (this.dockerWebMysqlForm.valid) {
+     this.DockerService.DockerWebMysql(this.dockerWebMysqlForm.value).subscribe(
+       response => {
+         this.dockerWebForm = response.dockerWebForm;
+         console.log("Docker web : ",response);
+         Swal.fire({
+           icon: 'success',
+           title: 'Docker Generado',
+           text: 'Se ha generado el nuevo docker exitosamente.'
+         }).then(() => {
+           const Toast = Swal.mixin({
+             toast: true,
+             position: "top-end",
+             showConfirmButton: false,
+             timer: 3000,
+             timerProgressBar: true,
+             didOpen: (toast) => {
+               toast.onmouseenter = Swal.stopTimer;
+               toast.onmouseleave = Swal.resumeTimer;
+             }
+           });
+           this.Mensaje();
+         this.resetForm3();
+         
+         });
+       }
+     )
+    }
     // Lógica de manejo de datos
   }
 
-  resetForm() {
+  resetForm1() {
     this.dockerWebForm.reset(); // Resetea todos los campos
-  }
 
+  }
+  resetForm2() {
+ // Resetea todos los campos
+ 
+    this.dockerMysqlPhpmyadminForm.reset();
+  }
+  resetForm3() {
+ // Resetea todos los campos
+    this.dockerWebMysqlForm.reset();
+  
+  }
 }
