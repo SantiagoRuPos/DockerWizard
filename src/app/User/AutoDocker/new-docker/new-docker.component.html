@@ -19,11 +19,10 @@
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">Imagen</label>
-        <select class="form-select" multiple aria-label="Multiple select example">
+        <select class="form-select" id="image" formControlName="image" aria-label="Seleccione el tipo de proyecto" multiple>
           <option selected>Open this select menu</option>
-          <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+          <option *ngFor="let image of image; let i=index" >{{ image }}</option>
         </select>
-       
       </div>
       <div class="mb-3">
         <label for="volumenes" class="form-label">Volúmenes</label>
@@ -45,12 +44,15 @@
         <label for="NombreContenedor" class="form-label">Nombre del Contenedor MySQL</label>
         <input type="text" id="NombreContenedor" formControlName="NombreContenedor" class="form-control">
       </div>
-      <div class="mb-3" id="container-image">
-        <label for="image" class="form-label">Imagen MySQL</label>
-        <select id="image" formControlName="image" class="form-control">
-          <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+ <div class="mb-3">
+        <label for="image" class="form-label">Imagen</label>
+        <select class="form-select" id="image" formControlName="image" aria-label="Seleccione el tipo de proyecto" multiple>
+          <option selected>Open this select menu</option>
+          <option *ngFor="let image of image; let i=index" >{{ image }}</option>
         </select>
       </div>
+
+   
       <div class="mb-3" id="container-database">
         <label for="MYSQL_DATABASE" class="form-label">Base de Datos MySQL</label>
         <input type="text" id="MYSQL_DATABASE" formControlName="MYSQL_DATABASE" class="form-control">
@@ -85,12 +87,15 @@
         <label for="NombreContenedorPHPmyadmin" class="form-label">Nombre Contenedor de phpMyAdmin</label>
         <input type="text" id="NombreContenedorPHPmyadmin" formControlName="NombreContenedorPHPmyadmin" class="form-control">
       </div>
-      <div class="mb-3" id="container-phpmyadmin-image">
-        <label for="imagePHPmyadmin" class="form-label">Imagen Phpmyadmin</label>
-        <select id="imagePHPmyadmin" formControlName="imagePHPmyadmin" class="form-control">
-          <option *ngFor="let img of Phpmyadmin" [value]="img.value">{{ img.label }}</option>
+      <div class="mb-3">
+        <label for="image" class="form-label">Imagen Phpmyadmin</label>
+        <select class="form-select" id="imagePHPmyadmin" formControlName="imagePHPmyadmin" aria-label="Seleccione el tipo de proyecto" multiple>
+          <option selected>Open this select menu</option>
+          <option *ngFor="let image of Phpmyadmin; let i=index" >{{ image }}</option>
         </select>
       </div>
+
+     
       <div class="mb-3" id="container-phpmyadmin-alias">
         <label for="dockerNamephpmyadmin" class="form-label">Alias Contenedor de phpMyAdmin</label>
         <input type="text" id="dockerNamephpmyadmin" formControlName="dockerNamephpmyadmin" class="form-control">
@@ -122,9 +127,10 @@
           <input type="text" id="dockerNameWEB" formControlName="dockerNameWEB" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="imageWeb" class="form-label">Imagen Web</label>
-          <select id="imageWeb" formControlName="imageWEB" class="form-control">
-            <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+          <label for="image" class="form-label">Imagen</label>
+          <select class="form-select" id="image" formControlName="image" aria-label="Seleccione el tipo de proyecto" multiple>
+            <option selected>Open this select menu</option>
+            <option *ngFor="let image of image; let i=index" >{{ image }}</option>
           </select>
         </div>
         <div class="mb-3">
@@ -145,9 +151,10 @@
           <input type="text" id="NombreContenedorMYSQL" formControlName="NombreContenedorMYSQL" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="imageMYSQL" class="form-label">Imagen MySQL</label>
-          <select id="imageMYSQL" formControlName="imageMYSQL" class="form-control">
-            <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+          <label for="image" class="form-label">Imagen</label>
+          <select class="form-select" id="imageMYSQL" formControlName="imageMYSQL" aria-label="Seleccione el tipo de proyecto" multiple>
+            <option selected>Open this select menu</option>
+            <option *ngFor="let image of image; let i=index" >{{ image }}</option>
           </select>
         </div>
         <div class="mb-3">
@@ -184,9 +191,10 @@
           <input type="text" id="NombreContenedorPHPmyadmin" formControlName="NombreContenedorPHPmyadmin" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="imagePHPmyadmin" class="form-label">Imagen Phpmyadmin</label>
-          <select id="imagePHPmyadmin" formControlName="imagePHPmyadmin" class="form-control">
-            <option *ngFor="let img of Phpmyadmin" [value]="img.value">{{ img.label }}</option>
+          <label for="image" class="form-label">Imagen Phpmyadmin</label>
+          <select class="form-select" id="imagePHPmyadmin" formControlName="imagePHPmyadmin" aria-label="Seleccione el tipo de proyecto" multiple>
+            <option selected>Open this select menu</option>
+            <option *ngFor="let image of Phpmyadmin; let i=index" >{{ image }}</option>
           </select>
         </div>
         <div class="mb-3">

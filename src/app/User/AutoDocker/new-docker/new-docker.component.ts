@@ -16,32 +16,23 @@ export class NewDockerComponent {
   dockerWebForm: FormGroup;
   dockerMysqlPhpmyadminForm: FormGroup;
   dockerWebMysqlForm: FormGroup;
-
-  imageOptions = [
-    { label: 'nginx', value: 'nginx' },
-       { label: 'mysql:5.6e', value: 'mysql:5.6' },
-    { label: 'phpmyadmin/phpmyadmin', value: 'phpmyadmin/phpmyadmin' },
-    { label: 'php', value: 'php:7.4-apache' }
-  ];
-  Phpmyadmin = [
-    { label: 'nginx', value: 'nginx' },
-       { label: 'mysql:5.6e', value: 'mysql:5.7' },
-    { label: 'phpmyadmin/phpmyadmin', value: 'phpmyadmin/phpmyadmin' },
-    { label: 'php', value: 'php:7.4-apache' }
-  ];
+  TipoServicio = ['Web','Base de datos','Web y base de datos']; 
+  image = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
+  imageOptions = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
+  Phpmyadmin = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
 
   constructor(private fb: FormBuilder,private DockerService:DockerService) {
  
     this.dockerWebForm = this.fb.group({
       NombreContenedor: ['',[Validators.required]],
-      image: [this.imageOptions[1].value,[Validators.required]],  // valor por defecto
+      image: [[Validators.required]],  // valor por defecto
       volumenes: ['',[Validators.required]],
       dockerName: ['',[Validators.required]]
     });
 
     this.dockerMysqlPhpmyadminForm = this.fb.group({
       NombreContenedor: ['',[Validators.required]],
-      image: [this.imageOptions[1].value,[Validators.required]],  // valor por defecto
+      image: [[Validators.required]],  // valor por defecto
       MYSQL_DATABASE: ['',[Validators.required]],
       MYSQL_USER: ['',[Validators.required]],
       MYSQL_PASSWORD: ['',[Validators.required]],
@@ -49,7 +40,7 @@ export class NewDockerComponent {
       volumenes: ['',[Validators.required]],
       dockerName: ['',[Validators.required]],
       NombreContenedorPHPmyadmin: ['',[Validators.required]],
-      imagePHPmyadmin: [this.Phpmyadmin[2].value,[Validators.required]],  // valor por defecto
+      imagePHPmyadmin: [[Validators.required]],   // valor por defecto
       dockerNamephpmyadmin: ['',[Validators.required]],
       PMA_HOST: ['', [Validators.required, this.matchAlias.bind(this)]],
       depends_on: ['', [Validators.required, this.matchContenedor.bind(this)]]
@@ -57,12 +48,12 @@ export class NewDockerComponent {
 
     this.dockerWebMysqlForm = this.fb.group({
       NombreContenedorWEB: ['',[Validators.required]],
-      imageWEB: [this.imageOptions[0].value,[Validators.required]],  // valor por defecto
+      image: [[Validators.required]],  // valor por defecto
       volumenesWEB: ['',[Validators.required]],
       dockerNameWEB: ['',[Validators.required]],
       linksWEB: ['',[Validators.required]],
       NombreContenedorMYSQL: ['',[Validators.required]],
-      imageMYSQL: [this.imageOptions[2].value,[Validators.required]],  // valor por defecto
+      imageMYSQL: [[Validators.required]],  // valor por defecto
       MYSQL_DATABASE: ['',[Validators.required]],
       MYSQL_USER: ['',[Validators.required]],
       MYSQL_PASSWORD: ['',[Validators.required]],
@@ -70,10 +61,10 @@ export class NewDockerComponent {
       volumenesMYSQL: ['',[Validators.required]],
       dockerNameMYSQL: ['',[Validators.required]],
       NombreContenedorPHPmyadmin: ['',[Validators.required]],
-      imagePHPmyadmin: [this.Phpmyadmin[3].value,[Validators.required]],  // valor por defecto
+      imagePHPmyadmin: [[Validators.required]],  // valor por defecto
       dockerNamephpmyadmin: ['',[Validators.required]],
-      PMA_HOST: ['', [Validators.required, this.matchAlias.bind(this)]],
-      depends_on: ['', [Validators.required, this.matchAlias.bind(this)]]
+      PMA_HOST:  ['',[Validators.required]],
+      depends_on:  ['',[Validators.required]]
     });
 
   }
@@ -193,27 +184,7 @@ export class NewDockerComponent {
   }
 
   onSubmitDockerWebMysql(): void {
-    console.log(this.dockerWebMysqlForm.value);
-    if (this.dockerWebMysqlForm.invalid) {
-      const pmaHostErrors = this.dockerWebMysqlForm.get('PMA_HOST')?.errors;
-      const dependsOnErrors = this.dockerWebMysqlForm.get('depends_on')?.errors;
-
-      if (pmaHostErrors?.['matchAlias']) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error de Validación',
-          text: 'PMA_HOST debe ser igual al alias del contenedor de MySQL.'
-        });
-      }
-
-      if (dependsOnErrors?.['matchContenedor']) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error de Validación',
-          text: 'depends_on debe ser igual al nombre del contenedor de MySQL.'
-        });
-      }
-    }else  if (this.dockerWebMysqlForm.valid) {
+  if (this.dockerWebMysqlForm.valid) {
      this.DockerService.DockerWebMysql(this.dockerWebMysqlForm.value).subscribe(
        response => {
          this.dockerWebForm = response.dockerWebForm;

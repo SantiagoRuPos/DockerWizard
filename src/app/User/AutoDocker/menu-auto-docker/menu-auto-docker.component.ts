@@ -33,4 +33,7 @@ export class MenuAutoDockerComponent {
     NewDocker(){
       this.router.navigate(['NewDocker']);
     }
+    MenuPrincipal(){
+      this.router.navigate(['/Home']); 
+    }
 }

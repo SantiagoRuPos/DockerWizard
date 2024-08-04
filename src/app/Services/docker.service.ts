@@ -35,7 +35,7 @@ export class DockerService {
   DockerMysql(dockerMysqlPhpmyadminForm:{NombreContenedor:any,image:any,MYSQL_DATABASE:any,MYSQL_USER:any,MYSQL_PASSWORD:any,MYSQL_ROOT_PASSWORD:any,volumenes:any,dockerName:any,NombreContenedorPHPmyadmin:any,imagePHPmyadmin:any,dockerNamephpmyadmin:any,PMA_HOST:any,depends_on:any}):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/DockerBd`,dockerMysqlPhpmyadminForm);
   }
-  DockerWebMysql(dockerWebMysqlForm:{NombreContenedorWEB:any,imageWEB:any,volumenesWEB:any, dockerNameWEB:any, linksWEB:any, NombreContenedorMYSQL:any, imageMYSQL:any,MYSQL_DATABASE:any, MYSQL_USER:any,MYSQL_PASSWORD:any,MYSQL_ROOT_PASSWORD:any,volumenesMYSQL:any, dockerNameMYSQL:any, NombreContenedorPHPmyadmin:any, imagePHPmyadmin:any, dockerNamephpmyadmin:any,PMA_HOST:any,depends_on:any }):Observable<any>{
+  DockerWebMysql(dockerWebMysqlForm:{NombreContenedorWEB:any,image:any,volumenesWEB:any, dockerNameWEB:any, linksWEB:any, NombreContenedorMYSQL:any, imageMYSQL:any,MYSQL_DATABASE:any, MYSQL_USER:any,MYSQL_PASSWORD:any,MYSQL_ROOT_PASSWORD:any,volumenesMYSQL:any, dockerNameMYSQL:any, NombreContenedorPHPmyadmin:any, imagePHPmyadmin:any, dockerNamephpmyadmin:any,PMA_HOST:any,depends_on:any }):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/DockerWebBd`,dockerWebMysqlForm);
   }
   DockerRestart(nombreContenedor:any): Observable <any>{
