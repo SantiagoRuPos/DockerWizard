@@ -25,4 +25,7 @@ export class BodyAutoDockerComponent {
   NewRoute(){
     this.router.navigate(['/NewRoute']);
   }
+  NewDocker(){
+    this.router.navigate(['/NewDocker']);
+  }
 }

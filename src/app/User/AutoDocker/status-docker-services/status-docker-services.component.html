@@ -1,41 +1,55 @@
-<div class="container">
-<div class="container" style="margin-bottom: 100px;">
+<div class="container mt-5 main-content">
+  <!-- Menu Section -->
+  <div class="mb-4">
     <app-menu-auto-docker></app-menu-auto-docker>
- </div>
- <h1>Contenedores Docker</h1>
- <table>
-   <thead>
-     <tr>
-       <th>ID</th>
-       <th>Imagen</th>
-       <th>Comando</th>
-       <th>Creado en</th>
-       <th>Estado</th>
-       <th>Puertos</th>
-       <th>Nombres</th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr *ngFor="let container of containers">
-       <td>{{ container.id }}</td>
-       <td>{{ container.image }}</td>
-       <td>{{ container.command }}</td>
-       <td>{{ container.createdAt }}</td>
-       <td>{{ container.status }}</td>
-       <td>{{ container.ports }}</td>
-       <td>{{ container.names }}</td>
-     </tr>
-   </tbody>
- </table>
+  </div>
+<br>
+  <!-- Title -->
+  <h1 class="mb-4">Contenedores Docker</h1>
 
- <div class="container text-center">
-    <div class="example-button-row">
-      
-      <button class="btn btn-primary mt-2" (click)="consultar()">
-        Consultar
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped custom-table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Imagen</th>
+          <th>Comando</th>
+          <th>Creado en</th>
+          <th>Estado</th>
+          <th>Puertos</th>
+          <th>Nombres</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let container of containers">
+          <td>{{ container.id }}</td>
+          <td>{{ container.image }}</td>
+          <td>{{ container.command }}</td>
+          <td>{{ container.createdAt }}</td>
+          <td>{{ container.status }}</td>
+          <td>{{ container.ports }}</td>
+          <td>{{ container.names }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Buttons -->
+  <div class="text-center mt-4">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button class="btn btn-primary" (click)="consultar()">
+        <i class="fas fa-search"></i> Consultar
+      </button>
+      <button class="btn btn-warning" (click)="promptForContainer()">
+        <i class="fas fa-sync-alt"></i> Reinicio de Servicio
+      </button>
+      <button class="btn btn-success" (click)="updatedorContainer()">
+        <i class="fas fa-arrow-up"></i> Actualización de Servicios
+      </button>
+      <button class="btn btn-success" (click)="DockerLogs()">
+        <i class="bi bi-file-earmark-text"></i> Ver logs
       </button>
     </div>
   </div>
-  
-
 </div>

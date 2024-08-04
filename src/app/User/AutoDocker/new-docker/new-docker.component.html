@@ -36,162 +36,174 @@
       <button type="submit" class="btn btn-success">Guardar</button>
     </form>
   </div>
-
-  <div *ngIf="panelOpenState === 1">
+  <div *ngIf="panelOpenState === 1" id="form-container">
     <h3>Docker MySQL y phpMyAdmin</h3>
     <form [formGroup]="dockerMysqlPhpmyadminForm" (ngSubmit)="onSubmitDockerMysqlPhpmyadmin()">
-      <div class="mb-3">
+      <!-- Sección MySQL -->
+      <div class="section-title">Configuración MySQL</div>
+      <div class="mb-3" id="container-nombre">
         <label for="NombreContenedor" class="form-label">Nombre del Contenedor MySQL</label>
         <input type="text" id="NombreContenedor" formControlName="NombreContenedor" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-image">
         <label for="image" class="form-label">Imagen MySQL</label>
         <select id="image" formControlName="image" class="form-control">
           <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
         </select>
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-database">
         <label for="MYSQL_DATABASE" class="form-label">Base de Datos MySQL</label>
         <input type="text" id="MYSQL_DATABASE" formControlName="MYSQL_DATABASE" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-user">
         <label for="MYSQL_USER" class="form-label">Usuario Base de Datos MySQL</label>
         <input type="text" id="MYSQL_USER" formControlName="MYSQL_USER" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-password">
         <label for="MYSQL_PASSWORD" class="form-label">Contraseña para Base de Datos MySQL</label>
         <input type="password" id="MYSQL_PASSWORD" formControlName="MYSQL_PASSWORD" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-root-password">
         <label for="MYSQL_ROOT_PASSWORD" class="form-label">Contraseña root para Base de Datos MySQL</label>
         <input type="password" id="MYSQL_ROOT_PASSWORD" formControlName="MYSQL_ROOT_PASSWORD" class="form-control">
       </div>
-      <div class="mb-3">
-        <label for="volumenes" class="form-label">volumenesL</label>
+      <div class="mb-3" id="container-volumenes">
+        <label for="volumenes" class="form-label">Directorio del volumen</label>
         <input type="text" id="volumenes" formControlName="volumenes" class="form-control">
       </div>
-      <div class="mb-3">
-        <label for="dockerName" class="form-label">Alias del docker </label>
+      <div class="mb-3" id="container-dockername">
+        <label for="dockerName" class="form-label">Alias del docker de Mysql</label>
         <input type="text" id="dockerName" formControlName="dockerName" class="form-control">
       </div>
-      <div class="mb-3">
+  
+      <!-- Separador -->
+      <hr class="section-separator">
+  
+      <!-- Sección phpMyAdmin -->
+      <div class="section-title">Configuración phpMyAdmin</div>
+      <div class="mb-3" id="container-phpmyadmin-name">
         <label for="NombreContenedorPHPmyadmin" class="form-label">Nombre Contenedor de phpMyAdmin</label>
         <input type="text" id="NombreContenedorPHPmyadmin" formControlName="NombreContenedorPHPmyadmin" class="form-control">
       </div>
-        <div class="mb-3">
+      <div class="mb-3" id="container-phpmyadmin-image">
         <label for="imagePHPmyadmin" class="form-label">Imagen Phpmyadmin</label>
         <select id="imagePHPmyadmin" formControlName="imagePHPmyadmin" class="form-control">
           <option *ngFor="let img of Phpmyadmin" [value]="img.value">{{ img.label }}</option>
         </select>
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-phpmyadmin-alias">
         <label for="dockerNamephpmyadmin" class="form-label">Alias Contenedor de phpMyAdmin</label>
         <input type="text" id="dockerNamephpmyadmin" formControlName="dockerNamephpmyadmin" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-pma-host">
         <label for="PMA_HOST" class="form-label">PMA_HOST de phpMyAdmin</label>
         <input type="text" id="PMA_HOST" formControlName="PMA_HOST" class="form-control">
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="container-depends-on">
         <label for="depends_on" class="form-label">depends_on Contenedor de phpMyAdmin</label>
         <input type="text" id="depends_on" formControlName="depends_on" class="form-control">
       </div>
-      <!-- Más campos aquí -->
-      <button type="submit" class="btn btn-success">Guardar</button>
+      <button type="submit" class="btn btn-success" id="submit-button">Guardar</button>
     </form>
   </div>
-
-  <div *ngIf="panelOpenState === 2">
-    <h3>Docker Web y MySQL</h3>
+  <div *ngIf="panelOpenState === 2" id="form-container">
+    <h3>Configuración de Docker</h3>
     <form [formGroup]="dockerWebMysqlForm" (ngSubmit)="onSubmitDockerWebMysql()">
-      <div class="mb-3">
-        <label for="nombreContenedorWEB" class="form-label">Nombre del Contenedor WEB</label>
-        <input type="text" id="NombreContenedorWEB" formControlName="NombreContenedorWEB" class="form-control">
+      
+      <!-- Sección Web -->
+      <div class="form-section">
+        <h4 class="section-title">Configuración Web</h4>
+        <div class="mb-3">
+          <label for="NombreContenedorWEB" class="form-label">Nombre del Contenedor WEB</label>
+          <input type="text" id="NombreContenedorWEB" formControlName="NombreContenedorWEB" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="dockerNameWEB" class="form-label">Alias del Contenedor WEB</label>
+          <input type="text" id="dockerNameWEB" formControlName="dockerNameWEB" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="imageWeb" class="form-label">Imagen Web</label>
+          <select id="imageWeb" formControlName="imageWEB" class="form-control">
+            <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="volumenesWEB" class="form-label">Volúmenes Web</label>
+          <input type="text" id="volumenesWEB" formControlName="volumenesWEB" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="linksWEB" class="form-label">Link Web</label>
+          <input type="text" id="linksWEB" formControlName="linksWEB" class="form-control">
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="dockerNameWEB" class="form-label">Alias del Contenedor WEB</label>
-        <input type="text" id="dockerNameWEB" formControlName="dockerNameWEB" class="form-control">
+      
+      <!-- Sección MySQL -->
+      <div class="form-section">
+        <h4 class="section-title">Configuración MySQL</h4>
+        <div class="mb-3">
+          <label for="NombreContenedorMYSQL" class="form-label">Nombre Contenedor MYSQL</label>
+          <input type="text" id="NombreContenedorMYSQL" formControlName="NombreContenedorMYSQL" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="imageMYSQL" class="form-label">Imagen MySQL</label>
+          <select id="imageMYSQL" formControlName="imageMYSQL" class="form-control">
+            <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="MYSQL_DATABASE" class="form-label">Nombre Base de datos MYSQL</label>
+          <input type="text" id="MYSQL_DATABASE" formControlName="MYSQL_DATABASE" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="MYSQL_USER" class="form-label">Nombre usuario MYSQL</label>
+          <input type="text" id="MYSQL_USER" formControlName="MYSQL_USER" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="MYSQL_PASSWORD" class="form-label">Password MYSQL</label>
+          <input type="password" id="MYSQL_PASSWORD" formControlName="MYSQL_PASSWORD" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="MYSQL_ROOT_PASSWORD" class="form-label">Password root MYSQL</label>
+          <input type="password" id="MYSQL_ROOT_PASSWORD" formControlName="MYSQL_ROOT_PASSWORD" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="volumenesMYSQL" class="form-label">Volumenes MYSQL</label>
+          <input type="text" id="volumenesMYSQL" formControlName="volumenesMYSQL" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="dockerNameMYSQL" class="form-label">Alias Contenedor MYSQL</label>
+          <input type="text" id="dockerNameMYSQL" formControlName="dockerNameMYSQL" class="form-control">
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="imageWeb" class="form-label">Imagen Web</label>
-        <select id="imageWeb" formControlName="imageWEB" class="form-control">
-          <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
-        </select>
+      
+      <!-- Sección phpMyAdmin -->
+      <div class="form-section">
+        <h4 class="section-title">Configuración phpMyAdmin</h4>
+        <div class="mb-3">
+          <label for="NombreContenedorPHPmyadmin" class="form-label">Nombre Contenedor Phpmyadmin</label>
+          <input type="text" id="NombreContenedorPHPmyadmin" formControlName="NombreContenedorPHPmyadmin" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="imagePHPmyadmin" class="form-label">Imagen Phpmyadmin</label>
+          <select id="imagePHPmyadmin" formControlName="imagePHPmyadmin" class="form-control">
+            <option *ngFor="let img of Phpmyadmin" [value]="img.value">{{ img.label }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="dockerNamephpmyadmin" class="form-label">Alias Contenedor phpMyAdmin</label>
+          <input type="text" id="dockerNamephpmyadmin" formControlName="dockerNamephpmyadmin" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="PMA_HOST" class="form-label">PMA_HOST</label>
+          <input type="text" id="PMA_HOST" formControlName="PMA_HOST" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="depends_on" class="form-label">depends_on</label>
+          <input type="text" id="depends_on" formControlName="depends_on" class="form-control">
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="volumenesWEB" class="form-label">Volúmenes Web</label>
-        <input type="text" id="volumenesWEB" formControlName="volumenesWEB" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label for="linksWEB" class="form-label">Link Web</label>
-        <input type="text" id="linksWEB" formControlName="linksWEB" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label for="NombreContenedorMYSQL" class="form-label">Nombre Contenedor MYSQL</label>
-        <input type="text" id="NombreContenedorMYSQL" formControlName="NombreContenedorMYSQL" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="imageMYSQL" class="form-label">Imagen MySQL</label>
-        <select id="imageMYSQL" formControlName="imageMYSQL" class="form-control">
-          <option *ngFor="let img of imageOptions" [value]="img.value">{{ img.label }}</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="MYSQL_DATABASE" class="form-label">Nombre Base de datos MYSQL</label>
-        <input type="text" id="MYSQL_DATABASE" formControlName="MYSQL_DATABASE" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="MYSQL_USER" class="form-label">Nombre usuario MYSQL</label>
-        <input type="text" id="MYSQL_USER" formControlName="MYSQL_USER" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="MYSQL_PASSWORD" class="form-label">Password MYSQL</label>
-        <input type="text" id="MYSQL_PASSWORD" formControlName="MYSQL_PASSWORD" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="MYSQL_ROOT_PASSWORD" class="form-label">Password root MYSQL</label>
-        <input type="text" id="MYSQL_ROOT_PASSWORD" formControlName="MYSQL_ROOT_PASSWORD" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="volumenesMYSQL" class="form-label">Volumenes MYSQL</label>
-        <input type="text" id="volumenesMYSQL" formControlName="volumenesMYSQL" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="dockerNameMYSQL" class="form-label">Alias Contenedor MYSQL</label>
-        <input type="text" id="dockerNameMYSQL" formControlName="dockerNameMYSQL" class="form-control">
-      </div>
-
-      <div class="mb-3">
-        <label for="NombreContenedorPHPmyadmin" class="form-label">nombre Contenedor Phpmyadmin</label>
-        <input type="text" id="NombreContenedorPHPmyadmin" formControlName="NombreContenedorPHPmyadmin" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label for="imagePHPmyadmin" class="form-label">Imagen Phpmyadmin</label>
-        <select id="imagePHPmyadmin" formControlName="imagePHPmyadmin" class="form-control">
-          <option *ngFor="let img of Phpmyadmin" [value]="img.value">{{ img.label }}</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="dockerNamephpmyadmin" class="form-label">Alias Contenedor phpMyAdmin</label>
-        <input type="text" id="dockerNamephpmyadmin" formControlName="dockerNamephpmyadmin" class="form-control">
-      </div>
-       <div class="mb-3">
-        <label for="PMA_HOST" class="form-label">PMA_HOSTL</label>
-        <input type="text" id="PMA_HOST" formControlName="PMA_HOST" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label for="depends_on" class="form-label">depends_onL</label>
-        <input type="text" id="depends_on" formControlName="depends_on" class="form-control">
-      </div>
-     <!-- Más campos aquí -->
-      <button type="submit" class="btn btn-success">Guardar</button>
+      
+      <button type="submit" id="submit-button" class="btn btn-success">Guardar</button>
     </form>
   </div>
 </div>

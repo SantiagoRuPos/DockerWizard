@@ -38,4 +38,12 @@ export class DockerService {
   DockerWebMysql(dockerWebMysqlForm:{NombreContenedorWEB:any,imageWEB:any,volumenesWEB:any, dockerNameWEB:any, linksWEB:any, NombreContenedorMYSQL:any, imageMYSQL:any,MYSQL_DATABASE:any, MYSQL_USER:any,MYSQL_PASSWORD:any,MYSQL_ROOT_PASSWORD:any,volumenesMYSQL:any, dockerNameMYSQL:any, NombreContenedorPHPmyadmin:any, imagePHPmyadmin:any, dockerNamephpmyadmin:any,PMA_HOST:any,depends_on:any }):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/DockerWebBd`,dockerWebMysqlForm);
   }
+  DockerRestart(nombreContenedor:any): Observable <any>{
+    const body = { nombreContenedor }; // Asegúrate de que el cuerpo tenga la estructura que el servidor espera
+    return this.http.post<any>(`${this.apiUrl}/DockerRestart`, body);
+  }
+  UpdatesContenedores(nombreContenedor:any): Observable <any>{
+    const body = { nombreContenedor }; 
+    return this.http.post<any>(`${this.apiUrl}/UpdateContenedores`,body);
+  }
 }
