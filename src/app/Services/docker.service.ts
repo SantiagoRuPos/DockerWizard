@@ -46,4 +46,7 @@ export class DockerService {
     const body = { nombreContenedor }; 
     return this.http.post<any>(`${this.apiUrl}/UpdateContenedores`,body);
   }
+  ResetRutas():Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/reseRutas`);
+  }
 }

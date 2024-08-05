@@ -1,25 +1,33 @@
 <div class="container">
     <div class="container" style="margin-bottom: 100px;">
-        <app-menu-auto-docker></app-menu-auto-docker>
+      <app-menu-auto-docker></app-menu-auto-docker>
     </div>
     <h1>Habilitar nueva ruta</h1>
     <form [formGroup]="data" (ngSubmit)="Ruta()">
-        <div>
-            <label for="NmaeRuta">Nombre de la ruta </label>
-            <input type="text" formControlName="NmaeRuta" placeholder="Nombre de la ruta">
-            <small class="form-text text-muted" *ngIf="data.get('NmaeRuta')?.errors?.['pattern']">
-                la ruta solo puede contener letras y números.
-            </small>
-        </div>
-        <div>
-            <label for="dockerName">Nombre del Contenedor </label>
-            <input type="text" formControlName="dockerName" placeholder="Nombre del Contenedor">
-            <small class="form-text text-muted" *ngIf="data.get('dockerName')?.errors?.['pattern']">
-                El nombre del contenedor solo puede contener letras y números.
-            </small>
-        </div>
-
-        <button type="submit">Crear Ruta</button>
+      <div class="form-group">
+        <label for="NmaeRuta">Nombre de la ruta</label>
+        <input type="text" formControlName="NmaeRuta" placeholder="Nombre de la ruta">
+        <small class="form-text text-muted" *ngIf="data.get('NmaeRuta')?.errors?.['pattern']">
+          La ruta solo puede contener letras y números.
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="dockerName">Nombre del Contenedor</label>
+        <input type="text" formControlName="dockerName" placeholder="Nombre del Contenedor">
+        <small class="form-text text-muted" *ngIf="data.get('dockerName')?.errors?.['pattern']">
+          El nombre del contenedor solo puede contener letras y números.
+        </small>
+      </div>
+      <div class="button-group">
+        <button type="submit" class="btn btn-success">
+          <i class="fas fa-plus"></i> Crear Ruta
+        </button>
+        <button type="button" class="btn btn-warning" (click)="reiniciarServicio()">
+          <i class="fas fa-sync-alt"></i> Reiniciar Servicio
+        </button>
+        <button type="button" class="btn btn-info" (click)="verEstadoServicios()">
+          <i class="fas fa-eye"></i> Ver Estado Servicios
+        </button>
+      </div>
     </form>
-
-</div>
+  </div>

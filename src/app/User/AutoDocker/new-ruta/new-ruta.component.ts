@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DockerService } from '../../../Services/docker.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-ruta',
   templateUrl: './new-ruta.component.html',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 export class NewRutaComponent {
   data: FormGroup;
   logs: string = '';
-  constructor(private formBuilder: FormBuilder,private DockerService:DockerService){
+  constructor(private formBuilder: FormBuilder,private DockerService:DockerService,private router: Router){
     this.data = this.formBuilder.group({
       NmaeRuta: ['', [Validators.required]],
       dockerName: ['', [Validators.required]]
@@ -86,4 +87,38 @@ export class NewRutaComponent {
       });
     }
   }
+  reiniciarServicio() {
+    this.DockerService.ResetRutas().subscribe(
+      (data: any) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Se Reiniciaron las rutas'
+        });
+      },
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al reiniciar',
+          text: 'Hubo un problema al intentar reiniciar las rutas. Por favor, inténtalo de nuevo. Si el error persiste, revisa el terminal o reporta el fallo.'
+        });
+        console.error('Error al reiniciar las rutas:', error);
+      }
+    );
+}
+
+verEstadoServicios() {
+  this.router.navigate(['/StatusServicesDocker']);
+}
 }
