@@ -16,7 +16,9 @@ export class NewDockerComponent {
   dockerWebForm: FormGroup;
   dockerMysqlPhpmyadminForm: FormGroup;
   dockerWebMysqlForm: FormGroup;
-  TipoServicio = ['Web','Base de datos','Web y base de datos']; 
+  TipoServicio = ['Web','Base de datos','Web y base de datos', "Personalizado"]; 
+  selectedOption: string = this.TipoServicio[0];
+
   image = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
   imageOptions = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
   Phpmyadmin = ['nginx','mysql:5.6','phpmyadmin/phpmyadmin','php:7.4-apache']; 
