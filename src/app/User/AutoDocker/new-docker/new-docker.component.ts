@@ -229,8 +229,8 @@ export class NewDockerComponent {
   resetForm3() {
  // Resetea todos los campos
     this.dockerWebMysqlForm.reset();
-  
   }
+
   Mensaje(){
     Swal.fire({
       icon: 'info',

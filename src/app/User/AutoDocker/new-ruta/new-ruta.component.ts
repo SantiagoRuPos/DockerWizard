@@ -57,6 +57,7 @@ export class NewRutaComponent {
                 toast.onmouseleave = Swal.resumeTimer;
               }
             });
+            
             this.resetForm();
           });
         },

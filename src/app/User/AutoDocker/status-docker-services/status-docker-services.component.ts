@@ -112,7 +112,7 @@ export class StatusDockerServicesComponent implements OnInit {
       input: 'text',
       inputPlaceholder: 'Nombre del contenedor',
       showCancelButton: true,
-      confirmButtonText: 'Reiniciar',
+      confirmButtonText: 'Instalar dependecnias',
       cancelButtonText: 'Cancelar',
       inputValidator: (value) => {
         if (!value) {
@@ -129,10 +129,10 @@ export class StatusDockerServicesComponent implements OnInit {
 
   confirmUpdatet(nombreContenedor: string) {
     Swal.fire({
-      title: `¿Está seguro de que desea reiniciar el contenedor ${nombreContenedor}?`,
+      title: `¿Está seguro de que desea instalar las dependencias al contenedor ${nombreContenedor}?`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí, reiniciar',
+      confirmButtonText: 'Sí, instalar',
       cancelButtonText: 'No, cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
@@ -146,17 +146,17 @@ UpdateContainer(nombreContenedor: string) {
         console.log("Logs: ", response);
         Swal.fire({
           icon: 'success',
-          title: 'Contenedor reiniciado',
-          text: `El contenedor ${nombreContenedor} se reinició exitosamente.`
+          title: 'Dependencias Instaladas y actualizadas',
+          text: `Las dependecias de ${nombreContenedor} se instalaron correctamente.`
         });
       },
       (error) => {
         Swal.fire({
           icon: 'error',
-          title: 'Error al reiniciar',
-          text: `Hubo un problema al reiniciar el contenedor ${nombreContenedor}. Por favor, inténtalo de nuevo. Si el error persiste, revisa el terminal o reporta el fallo.`
+          title: 'Error al instalar',
+          text: `Hubo un problema al intentar instalar las dependencias del contenedor ${nombreContenedor}. Por favor, inténtalo de nuevo. Si el error persiste, revisa el terminal o reporta el fallo.`
         });
-        console.error('Error al reiniciar el Contenedor:', error);
+        console.error('Error al instalar dependencias de php y mysql:', error);
       }
     );
   }
