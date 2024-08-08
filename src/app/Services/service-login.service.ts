@@ -22,9 +22,8 @@ export class ServiceLoginService {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials)
       .pipe(
         map(response => {
-          // Si el inicio de sesión fue exitoso, almacena el token JWT en el almacenamiento local
           if (response && response.accessToken) {
-            localStorage.setItem('accessToken', response.accessToken);
+            sessionStorage.setItem('accessToken', response.accessToken); // Almacenar en sessionStorage
             return true;
           }
           return false;
@@ -35,27 +34,25 @@ export class ServiceLoginService {
         })
       );
   }
+  
+  isLoggedIn(): boolean {
+    if (typeof window !== 'undefined' && sessionStorage) {
+      return !!sessionStorage.getItem('accessToken'); // Verificar en sessionStorage
+    } else {
+      return false;
+    }
+  }
+  
+  logout(): void {
+    if (typeof window !== 'undefined' && sessionStorage) {
+      sessionStorage.removeItem('accessToken'); // Eliminar de sessionStorage
+    }
+  }
+
 
   getUserInfo(Nombre_Usuario: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/userinfo`,{Nombre_Usuario});
   }
-  
-  isLoggedIn(): boolean {
-    if (typeof window !== 'undefined' && localStorage) {
-      // Verificar si existe un token de acceso en localStorage
-      return !!localStorage.getItem('accessToken');
-    } else {
-      // Si localStorage no está disponible, asumimos que el usuario no está logueado
-      return false;
-    }
-  }
-  logout(): void {
-    if (typeof window !== 'undefined' && localStorage) {
-      // Eliminar el token de acceso de localStorage
-      localStorage.removeItem('accessToken');
-    }
-  }
-
   registerUser(newUser: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register-user`, newUser)
   }
