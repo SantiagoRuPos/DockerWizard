@@ -32,6 +32,11 @@ export class CygnusService {
   QuitarPermiso(Data : {Nombre_Usuario_Cygnus:String,Grupo_Cygnus:string}):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/QuitarPermiso`,Data);
   }
-  
-  
+
+  searchReportes(params: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/searchReports`,params);
+  }
+  newReport(Data : {Nombre_Reporte:String,Descripcion_Reporte:String,Nivel_Reporte:String,Usuario_Registrador_Reporte:String}):Observable <any> {
+    return this.http.post<any>(`${this.apiUrl}/NewReport`,Data);
+  }
 }

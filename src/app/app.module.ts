@@ -52,6 +52,7 @@ import { NewDockerComponent } from './User/AutoDocker/new-docker/new-docker.comp
 
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ReportsComponent } from './User/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     DockerLogsComponent,
     MonitoringImagesComponent,
     NewRutaComponent,
-    NewDockerComponent
+    NewDockerComponent,
+    ReportsComponent
     
  
   

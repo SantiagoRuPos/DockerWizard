@@ -15,6 +15,7 @@ export class BodyHomeComponent implements OnInit{
   ngOnInit(): void {
     this.usuarios=this.UsuarioInfoService.getUsuarios();
     console.log(this.usuarios);
+    
   }
 
   RutaRapidaNuevoUsuarioCygnus(){

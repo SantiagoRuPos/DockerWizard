@@ -39,4 +39,7 @@ export class MenuComponent {
     this.router.navigate(['/Home']);
 
   }
+  Reports(){
+    this.router.navigate(['/Reports']);
+  }
 }

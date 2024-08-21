@@ -1,0 +1,96 @@
+.container {
+  max-width: 90%;
+  margin: auto; /* Centra el contenedor */
+  padding-top: 20px; /* Agrega espacio arriba */
+}
+
+h2, h3 {
+  font-weight: bold;
+  color: #333; /* Asegura un buen contraste con el fondo */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  text-align: center; /* Centra el texto */
+}
+
+.table thead th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody td:first-child {
+  text-align: left;
+}
+
+.mt-4 p {
+  margin-bottom: 5px;
+}
+
+.nivel-1 {
+  background-color: #d9edf7; /* Azul claro */
+  color: #31708f; /* Color del texto */
+}
+
+.nivel-2 {
+  background-color: #fcf8e3; /* Amarillo claro */
+  color: #8a6d3b; /* Color del texto */
+}
+
+.nivel-3 {
+  background-color: #f2dede; /* Rojo claro */
+  color: #a94442; /* Color del texto */
+}
+
+/* Estilo personalizado para la ventana emergente */
+.custom-popup {
+  background-color: #f4f4f9;
+  border-radius: 15px;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Estilo personalizado para el título */
+.custom-title {
+  color: #4a4a4a;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center; /* Centra el título */
+}
+
+/* Estilo personalizado para los botones */
+.custom-confirm-button {
+  background-color: #3085d6;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.custom-cancel-button {
+  background-color: #aaa;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Estilo personalizado para los campos de entrada */
+.custom-input,
+.custom-textarea,
+.custom-select {
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Estilo personalizado para el campo select */
+.custom-select {
+  margin-top: 10px;
+  color: #4a4a4a;
+}

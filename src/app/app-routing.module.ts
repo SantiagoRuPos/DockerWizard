@@ -15,7 +15,7 @@ import { ListUsersComponent } from './User/DockerWizard/list-users/list-users.co
 import { BodyHomeComponent } from "./User/body-home/body-home.component";
 import {StatusUserComponent} from './User/DockerWizard/status-user/status-user.component';
 import { NewProjectComponent } from './User/DockerWizard/new-project/new-project.component';
-
+import {ReportsComponent} from './User/reports/reports.component';
 
 //Rutas Docker
 import {BodyAutoDockerComponent} from './User/AutoDocker/body-auto-docker/body-auto-docker.component';
@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'Home', component:BodyHomeComponent , canActivate: [AuthGuard] },
-
+  { path : 'Reports', component:ReportsComponent, canActivate:[AuthGuard]},
   ///RUTAS DE GESTION DE DOCKERWIZARD
   { path: 'AdminDockerwizard', component: BodyDockerWizardComponent, canActivate: [AuthGuard] },
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
