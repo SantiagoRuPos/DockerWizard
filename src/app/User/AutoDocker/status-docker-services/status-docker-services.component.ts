@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DockerService } from '../../../Services/docker.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { response } from 'express';
+import { error } from 'console';
 @Component({
   selector: 'app-status-docker-services',
   templateUrl: './status-docker-services.component.html',
@@ -162,5 +164,68 @@ UpdateContainer(nombreContenedor: string) {
   }
   DockerLogs(){
     this.router.navigate(['/DockerLogs']);
+  }
+
+
+
+
+  RemoveContainer() {
+    Swal.fire({
+      title: 'Ingrese el nombre del contenedor',
+      input: 'text',
+      inputPlaceholder: 'Nombre del contenedor',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+      inputValidator: (value) => {
+        if (!value) {
+          return '¡Necesitas ingresar un nombre de contenedor!';
+        }
+        return null;
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.confirmDelete(result.value);
+      }
+    });
+  }
+
+  confirmDelete(NombreContenedor: string) {
+    Swal.fire({
+      title: `¿Está seguro de que desea eliminar el contenedor ? ${NombreContenedor}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Eliminar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.removerContenedor(NombreContenedor);
+      }
+    });
+  }
+
+
+
+
+  
+  removerContenedor(NombreContenedor: string){
+    console.log(NombreContenedor);
+    this.dockerService.DeleteDocker(NombreContenedor).subscribe(
+      response => {
+        console.log("Contenedor elimanado", response);
+        Swal.fire({
+          icon: 'info',
+          title: 'El contenedor se retiro de manera exitosa',
+          text:'Se elimino correctamente el contenedor',
+          });
+      },
+      (error)=> {
+        Swal.fire({
+          icon:'error',
+          title:'se produjo un error al intentar eliminar el contenedor, intentalo nuevmaente. Si el error persiste revisa la consola.'
+        });
+        console.error('Error al intentar eliminar el contenedor: ', error);
+      }
+    )
   }
 }

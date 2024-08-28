@@ -49,4 +49,11 @@ export class DockerService {
   ResetRutas():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/resetRutas`);
   }
+  DeleteDocker(NombreContenedor: any): Observable<any> {
+    const url = `${this.apiUrl}/removecontainer`;
+    const body = { NombreContenedor };  // Estructura del cuerpo que la API espera
+  
+    return this.http.request<any>('delete', url, { body });
+  }
+  
 }

@@ -47,7 +47,11 @@
       <button class="btn btn-success" (click)="updatedorContainer()">
         <i class="fas fa-arrow-up"></i> Actualización de Servicios
       </button>
-      <button class="btn btn-success" (click)="DockerLogs()">
+      <button class="btn btn-danger"(click)="RemoveContainer()">
+        <i class="fas fa-trash-alt"></i> Eliminar Docker
+    </button>
+    
+      <button class="btn btn-info" (click)="DockerLogs()">
         <i class="bi bi-file-earmark-text"></i> Ver logs
       </button>
     </div>
