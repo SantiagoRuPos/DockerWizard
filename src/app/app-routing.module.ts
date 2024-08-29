@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'Home', component:BodyHomeComponent , canActivate: [AuthGuard] },
   { path : 'Reports', component:ReportsComponent, canActivate:[AuthGuard]},
-  ///RUTAS DE GESTION DE DOCKERWIZARD
+  ///RUTAS DE GESTION DE DOCKERWIZAR
   { path: 'AdminDockerwizard', component: BodyDockerWizardComponent, canActivate: [AuthGuard] },
   { path: 'registro-nuevo-usuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
   { path: 'Buscar-Usuarios', component:ListUsersComponent, canActivate: [AuthGuard]},
