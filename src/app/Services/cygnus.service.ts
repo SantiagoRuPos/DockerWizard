@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CygnusService {
-  private apiUrl = 'http://localhost:8991'; // Cambia esto por la URL de tu backend
+  private apiUrl = 'http://localhost:9000'; // Cambia esto por la URL de tu backend
 
   constructor(private http: HttpClient) {}
 
