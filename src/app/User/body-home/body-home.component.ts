@@ -27,7 +27,7 @@ export class BodyHomeComponent implements OnInit{
 
   }
   RutaRapidaReporteFallo(){
-    this.router.navigate(['/']); 
+    this.router.navigate(['/Reports']); 
 
   }
   RutaRapidaPerfil(){

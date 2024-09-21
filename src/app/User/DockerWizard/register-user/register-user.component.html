@@ -8,8 +8,8 @@
     <form [formGroup]="registroForm" (ngSubmit)="submitForm()">
         <div>
             <label for="Tipo_Identificacion_Usuario">Tipo de Identificación </label>
-            <select class="form-select" multiple aria-label="Multiple select example" formControlName="Tipo_Identificacion_Usuario">
-              <option *ngFor="let tipo of  Tipo_Identificacion" [value]="tipo" required>{{ tipo }} </option>
+            <select class="form-select" formControlName="Tipo_Identificacion_Usuario">
+              <option *ngFor="let tipo of Tipo_Identificacion" [value]="tipo" required>{{ tipo }} </option>
             </select>
           </div>
         <div>

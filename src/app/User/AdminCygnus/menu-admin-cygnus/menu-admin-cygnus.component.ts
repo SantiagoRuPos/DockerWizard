@@ -29,4 +29,10 @@ export class MenuAdminCygnusComponent {
   MonitorUserCygnus(){
     this.router.navigate(['/MonitorUserCygnus']);
   }
+  ResetPasswordCygnus(){
+    this.router.navigate(['/ResetPasswordCygnus']);
+  }
+  PermissionsUserCygnus(){
+    this.router.navigate(['/PermissionsUserCygnus']);
+  }
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-hreft /DockerWizard/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:DockerWizard": "node dist/docker-wizard/server/server.mjs"
