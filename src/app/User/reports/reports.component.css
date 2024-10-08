@@ -1,83 +1,179 @@
+/* General styling */
 .container {
   max-width: 90%;
-  margin: auto; /* Centra el contenedor */
-  padding-top: 20px; /* Agrega espacio arriba */
+  margin: auto;
+  padding-top: 20px;
 }
 
+/* Headers */
 h2, h3 {
   font-weight: bold;
-  color: #333; /* Asegura un buen contraste con el fondo */
-  margin-bottom: 20px; /* Espacio debajo del título */
-  text-align: center; /* Centra el texto */
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table styling */
+.table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .table thead th {
-  vertical-align: middle;
+  background-color: #f8f9fa;
   text-align: center;
+  vertical-align: middle;
+  padding: 12px;
+  font-size: 16px;
 }
 
 .table tbody td {
   vertical-align: middle;
   text-align: center;
+  padding: 15px;
 }
 
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect for table rows */
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* Column-specific styling */
 .table tbody td:first-child {
   text-align: left;
 }
 
+/* Report detail section */
 .mt-4 p {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 16px;
 }
 
+/* Button styling */
+.btn {
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-light {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+}
+
+.btn-light:hover {
+  background-color: #5a6268;
+}
+
+/* Search bar and Generate button */
+.d-flex input {
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.d-flex input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn-dark {
+  border-radius: 20px;
+  background-color: #343a40;
+  color: #fff;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-dark:hover {
+  background-color: #23272b;
+}
+
+/* Report level styling */
 .nivel-1 {
-  background-color: #d9edf7; /* Azul claro */
-  color: #31708f; /* Color del texto */
+  background-color: #d9edf7;
+  color: #31708f;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .nivel-2 {
-  background-color: #fcf8e3; /* Amarillo claro */
-  color: #8a6d3b; /* Color del texto */
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .nivel-3 {
-  background-color: #f2dede; /* Rojo claro */
-  color: #a94442; /* Color del texto */
+  background-color: #f2dede;
+  color: #a94442;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-/* Estilo personalizado para la ventana emergente */
+/* Modal popup styling */
 .custom-popup {
   background-color: #f4f4f9;
   border-radius: 15px;
   padding: 20px;
   font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo personalizado para el título */
 .custom-title {
   color: #4a4a4a;
   font-size: 24px;
   font-weight: bold;
-  text-align: center; /* Centra el título */
+  text-align: center;
 }
 
-/* Estilo personalizado para los botones */
+/* Buttons in modal */
 .custom-confirm-button {
   background-color: #3085d6;
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 10px 20px;
   font-size: 16px;
+}
+
+.custom-confirm-button:hover {
+  background-color: #2874a6;
 }
 
 .custom-cancel-button {
   background-color: #aaa;
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 10px 20px;
   font-size: 16px;
 }
 
-/* Estilo personalizado para los campos de entrada */
+.custom-cancel-button:hover {
+  background-color: #888;
+}
+
+/* Inputs and selects in modal */
 .custom-input,
 .custom-textarea,
 .custom-select {
@@ -87,10 +183,22 @@ h2, h3 {
   width: 100%;
   box-sizing: border-box;
   font-size: 14px;
+  margin-bottom: 15px;
 }
 
-/* Estilo personalizado para el campo select */
 .custom-select {
-  margin-top: 10px;
   color: #4a4a4a;
+}
+
+/* Spacing and alignment */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.mb-3 {
+  margin-bottom: 20px;
 }

@@ -13,14 +13,31 @@ import { error } from 'console';
 
 export class PermissionsUserCygnusComponent {
   UserCygnusForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder,private CygnusService:CygnusService){
+  constructor(private formBuilder: FormBuilder, private CygnusService: CygnusService) {
     this.UserCygnusForm = this.formBuilder.group({
-      Nombre_Usuario_Cygnus: ['', [Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
-      Grupo_Cygnus: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]]
+      Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]], // Solo letras
+      Grupo_Cygnus: ['', [Validators.required, Validators.pattern('^[0-9]{1,4}$')]] // Solo números, máximo 4 dígitos
     });
   }
-
+  
+  // Función para bloquear caracteres especiales y números en "Nombre de Usuario Cygnus"
+  filterInput(event: Event, inputType: string) {
+    const inputElement = event.target as HTMLInputElement;
+  
+    if (inputType === 'nombre') {
+      // Permitir solo letras
+      inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+    } else if (inputType === 'permiso') {
+      // Permitir solo números para permisos
+      inputElement.value = inputElement.value.replace(/[^0-9]/g, '');
+    }
+  
+    // Actualiza el valor del formulario
+    this.UserCygnusForm.get(inputElement.getAttribute('formControlName')!)?.setValue(inputElement.value);
+  }
+  
+  
+  // Resto del código del componente...
   highlightInvalidFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);

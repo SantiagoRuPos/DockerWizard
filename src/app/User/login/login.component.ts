@@ -53,25 +53,13 @@ export class LoginComponent {
       }
     });
   }
+  ForgotPassword(){
+    this.router.navigate(['/ForgotPassword']);
+  }
   
-
-
-
-
-
 }
 
 
 
 
-/*  listarImagenesDocker() {
-    this.ServiceLoginService.listarImagenesDocker().subscribe(
-      (data: any) => {
-        this.imagenes = data.images;
-      },
-      (error: any) => {
-        console.error('Error al obtener las imágenes de Docker:', error);
-      }
-    );
-  }*/
 

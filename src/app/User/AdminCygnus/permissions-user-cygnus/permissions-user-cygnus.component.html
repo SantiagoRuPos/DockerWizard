@@ -1,27 +1,40 @@
-<div class="container" style="margin-bottom: 100px;">  
-    <app-menu-admin-cygnus></app-menu-admin-cygnus>
+<div class="container" style="margin-bottom: 100px;">
+  <app-menu-admin-cygnus></app-menu-admin-cygnus>
 </div>
 
 <div class="container">
-    <h1 style="text-align: center;">Permisos a usuario Cygnus</h1>
-    <form [formGroup]="UserCygnusForm" (ngSubmit)="ReserPassword()" style="max-width: 400px; margin: 0 auto;">
+  <h1 style="text-align: center;">Permisos a usuario Cygnus</h1>
+  <form [formGroup]="UserCygnusForm" (ngSubmit)="ReserPassword()" style="max-width: 400px; margin: 0 auto;">
       <div style="margin-bottom: 15px;">
-        <label for="Nombre_Usuario_Cygnus" style="display: block;">Nombre de Usuario Cygnus</label>
-        <input type="text" formControlName="Nombre_Usuario_Cygnus" placeholder="Usuario" style="width: 100%; padding: 8px;">
-        <small class="form-text text-muted" *ngIf="UserCygnusForm.get('Nombre_Usuario_Cygnus')?.errors?.['pattern']" style="color: red;">
-          El nombre de Usuario solo puede contener letras y números.
-        </small>
+          <label for="Nombre_Usuario_Cygnus" style="display: block;">Nombre de Usuario Cygnus</label>
+          <input 
+              type="text" 
+              formControlName="Nombre_Usuario_Cygnus" 
+              placeholder="Usuario" 
+              style="width: 100%; padding: 8px;" 
+              (input)="filterInput($event, 'nombre')"
+          >
+          <small class="form-text text-muted" *ngIf="UserCygnusForm.get('Nombre_Usuario_Cygnus')?.errors?.['pattern']" style="color: red;">
+              El nombre de Usuario solo puede contener letras.
+          </small>
       </div>
       <div style="margin-bottom: 15px;">
-        <label for="Grupo_Cygnus" style="display: block;">Permisos</label>
-        <input type="text" formControlName="Grupo_Cygnus" placeholder="Grupo" style="width: 100%; padding: 8px;">
-        <small class="form-text text-muted" *ngIf="UserCygnusForm.get('Grupo_Cygnus')?.errors?.['pattern']" style="color: red;">
-          El grupo solo puede contener letras.
-        </small>
+          <label for="Grupo_Cygnus" style="display: block;">Permisos</label>
+          <input 
+              type="text" 
+              formControlName="Grupo_Cygnus" 
+              placeholder="Grupo" 
+              style="width: 100%; padding: 8px;" 
+              maxlength="4" 
+              (input)="filterInput($event, 'permiso')"
+          >
+          <small class="form-text text-muted" *ngIf="UserCygnusForm.get('Grupo_Cygnus')?.errors?.['pattern']" style="color: red;">
+              El grupo solo puede contener números y debe ser máximo de 4 dígitos.
+          </small>
       </div>
       <div style="text-align: center;">
-        <button type="submit" (click)="AsignarGrupo()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;">Asignar permiso</button>
-        <button type="submit" (click)="QuitarGrupo()" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Denegar permiso</button>
+          <button type="submit" (click)="AsignarGrupo()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;">Asignar permiso</button>
+          <button type="submit" (click)="QuitarGrupo()" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Denegar permiso</button>
       </div>
-    </form>
-  </div>
+  </form>
+</div>

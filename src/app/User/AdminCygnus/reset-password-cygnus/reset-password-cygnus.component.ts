@@ -11,14 +11,30 @@ import { error } from 'console';
 })
 export class ResetPasswordCygnusComponent {
   UserCygnusForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private CygnusService:CygnusService){
+  constructor(private formBuilder: FormBuilder, private CygnusService: CygnusService) {
     this.UserCygnusForm = this.formBuilder.group({
-      Nombre_Usuario_Cygnus: ['', [Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
-      Password_Usuario: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4)]],
-      Confirmar_Password_Usuario: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+'), Validators.minLength(4)]]
+      Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]], // Permitir solo letras
+      Password_Usuario: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,8}$')]],
+      Confirmar_Password_Usuario: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4,8}$')]]
     }, { validators: this.checkPasswords });
   }
 
+  // Función para bloquear caracteres especiales
+  filterInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const formControlName = inputElement.getAttribute('formControlName');
+  
+    if (formControlName === 'Nombre_Usuario_Cygnus') {
+      // Permitir solo letras
+      inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+    } else {
+      // Permitir letras y números para los campos de contraseña
+      inputElement.value = inputElement.value.replace(/[^a-zA-Z0-9]/g, '');
+    }
+  
+    // Actualiza el valor del formulario
+    this.UserCygnusForm.get(formControlName!)?.setValue(inputElement.value);
+  }
   checkPasswords(group: FormGroup | null) {
     if (!group) return null; // Comprobación para evitar errores si el grupo es nulo
     const pass = group.get('Password_Usuario')?.value;

@@ -1,37 +1,34 @@
 <div class="container">
-    <div class="container" style="margin-bottom: 100px;">
-        <app-menu-auto-docker></app-menu-auto-docker>
-     </div>
-     <h1>Lista de imagenes</h1>
-     <table>
-       <thead>
-         <tr>
-           <th>Repository</th>
-           <th>Tag</th>
-           <th>ID</th>
-           <th>CreatedAt</th>
-           <th>Size</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr *ngFor="let container of containers">
-           <td>{{ container.Repository }}</td>
-           <td>{{ container.Tag }}</td>
-           <td>{{ container.ID }}</td>
-           <td>{{ container.CreatedAt }}</td>
-           <td>{{ container.Size }}</td>
-         </tr>
-       </tbody>
-     </table>
-    
-     <div class="container text-center">
-        <div class="example-button-row">
-          
+
+      <app-menu-auto-docker></app-menu-auto-docker>
+
+  <h1>Lista de imágenes</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Repository</th>
+              <th>Tag</th>
+              <th>ID</th>
+              <th>CreatedAt</th>
+              <th>Size</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let container of containers">
+              <td>{{ container.Repository }}</td>
+              <td>{{ container.Tag }}</td>
+              <td>{{ container.ID }}</td>
+              <td>{{ container.CreatedAt }}</td>
+              <td>{{ container.Size }}</td>
+          </tr>
+      </tbody>
+  </table>
+  
+  <div class="container text-center">
+      <div class="example-button-row">
           <button class="btn btn-primary mt-2" (click)="consultar()">
-            Consultar
+              Consultar
           </button>
-        </div>
       </div>
-      
-    
-    </div>
+  </div>
+</div>

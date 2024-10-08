@@ -53,6 +53,7 @@ import { NewDockerComponent } from './User/AutoDocker/new-docker/new-docker.comp
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ReportsComponent } from './User/reports/reports.component';
+import { ForgotPasswordComponent } from './User/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { ReportsComponent } from './User/reports/reports.component';
     MonitoringImagesComponent,
     NewRutaComponent,
     NewDockerComponent,
-    ReportsComponent
+    ReportsComponent,
+    ForgotPasswordComponent
     
  
   

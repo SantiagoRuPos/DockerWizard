@@ -1,45 +1,106 @@
-/* Estilos para el formulario de búsqueda */
-.form-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos para el botón de búsqueda */
-  .btn-primary {
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos para la tabla de usuarios */
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table th,
-  .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .table th {
-    background-color: #f2f2f2;
-  }
-  
-  /* Estilos para el título */
-  h2 {
-    margin-bottom: 20px;
-  }
-  
-  .Div-menu{
-    margin-bottom: 60px;
-  }
-  
-  .example-button-row button,
-  .example-button-row a {
-  margin-right: 8px;
-  }
-  
-  .example-disabled {
-  display: inline-block;
-  }
-  
+/* Contenedor principal */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título */
+h2, h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 20px;
+}
+
+/* Encabezado de la tabla */
+.table th {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 3px solid #0056b3;
+}
+
+/* Celdas de la tabla */
+.table td {
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Mensaje cuando no hay procesos */
+.table .text-center {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  padding: 20px;
+}
+
+/* Alternar colores para las filas */
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Resaltar la fila al pasar el ratón */
+.table tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* Contenedor de botones */
+.example-button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Botón */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra para el botón */
+}
+
+/* Hover del botón */
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Botón: efecto de foco */
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Ajuste para el contenedor del menú */
+.Div-menu {
+  margin-bottom: 60px;
+}

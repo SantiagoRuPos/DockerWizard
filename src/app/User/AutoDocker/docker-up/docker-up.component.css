@@ -1,0 +1,68 @@
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f3f4f6; /* Fondo gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
+
+/* Tarjeta de información */
+.card {
+    background-color: #ffffff;
+    border: none; /* Elimina el borde por defecto */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Título de la tarjeta */
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 15px;
+    text-align: center; /* Centra el título */
+}
+
+/* Texto de la tarjeta */
+.card-text {
+    font-size: 16px;
+    color: #555; /* Color de texto gris oscuro */
+    line-height: 1.6;
+    text-align: center; /* Centra el texto */
+}
+
+/* Contenedor del botón */
+.example-button-row {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    margin-top: 20px;
+}
+
+/* Botón */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px; /* Añade más espacio alrededor del texto */
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza la transición */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra para el botón */
+}
+
+/* Efecto hover en el botón */
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Eleva el botón */
+}
+
+/* Efecto activo para el botón */
+.btn-primary:active {
+    background-color: #004494;
+    transform: translateY(0); /* Restaura la posición */
+}

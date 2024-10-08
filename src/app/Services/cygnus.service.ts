@@ -36,7 +36,10 @@ export class CygnusService {
   searchReportes(params: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/searchReports`,params);
   }
-  newReport(Data : {Nombre_Reporte:String,Descripcion_Reporte:String,Nivel_Reporte:String,Usuario_Registrador_Reporte:String}):Observable <any> {
+  newReport(Data : {Nombre_Reporte:String,Descripcion_Reporte:String,Nivel_Reporte:String,Usuario_Registrador_Reporte:String, Correo_Institucional_Usuario:string}):Observable <any> {
     return this.http.post<any>(`${this.apiUrl}/NewReport`,Data);
+  }
+  UpdateReport(updatedReportData:{Id_Reporte:string,Nivel_Reporte:String,Estado_Reporte:String,Usuario_Solucionador_Reporte:String,Comentarios_Reporte:String,Correo_Institucional_Usuario:string}):Observable <any> {
+    return this.http.post<any>(`${this.apiUrl}/ReportUpdate`,updatedReportData);
   }
 }

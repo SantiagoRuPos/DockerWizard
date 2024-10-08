@@ -1,64 +1,90 @@
 <div>
-<app-menu></app-menu>
+  <app-menu></app-menu>
 </div>
 <div class="container">
-<h1>Registro de usuario</h1>
-<div class="container">
+  <h1>Registro de usuario</h1>
+  <div class="container">
     <h1>Registro de usuario DockerWizard</h1>
     <form [formGroup]="registroForm" (ngSubmit)="submitForm()">
-        <div>
-            <label for="Tipo_Identificacion_Usuario">Tipo de Identificación </label>
-            <select class="form-select" formControlName="Tipo_Identificacion_Usuario">
-              <option *ngFor="let tipo of Tipo_Identificacion" [value]="tipo" required>{{ tipo }} </option>
-            </select>
-          </div>
-        <div>
-          <label for="Numero_Identificacion_Usuario">Numero de Identificación</label>
-          <input type="number" formControlName="Numero_Identificacion_Usuario" placeholder="123456" pattern="[0-9]+">
+      <div>
+        <label for="Tipo_Identificacion_Usuario">Tipo de Identificación </label>
+        <select class="form-select" formControlName="Tipo_Identificacion_Usuario">
+          <option *ngFor="let tipo of Tipo_Identificacion" [value]="tipo">{{ tipo }}</option>
+        </select>
+        <div *ngIf="registroForm.get('Tipo_Identificacion_Usuario')?.invalid && registroForm.get('Tipo_Identificacion_Usuario')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
         </div>
-        <div>
-          <label for="Nombre_Completo_Usuario">Nombre Completo</label>
-          <input type="text" formControlName="Nombre_Completo_Usuario" placeholder="Nombre y Apellidos"  pattern="[a-zA-Z0-9]+" required>
-        </div>
-       
-        <div class="mb-3">
-          <label for="Correo_Institucional_Usuario" class="form-label">Correo</label>
-          <input type="email" class="form-control" id="Correo_Institucional_Usuario" formControlName="Correo_Institucional_Usuario" placeholder="nombre@uniajc.edu.co" [class.is-invalid]="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
-          <div class="invalid-feedback" *ngIf="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
-              El correo electrónico no es válido.
-          </div>
       </div>
-        <div>
-          <label for="Numero_Contacto">Numero de Contacto</label>
-          <input type="number" formControlName="Numero_Contacto" placeholder="312 5555555" pattern="[0-9]+">
-        </div>
-        <div>
-          <label for="Nombre_Usuario">Nombre de Usuario</label>
-          <input type="text" formControlName="Nombre_Usuario" placeholder="Usuario">
-        </div>
-        <div>
-          <label for="Password_Usuario">Contraseña</label>
-          <input type="password" formControlName="Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
-          <small class="form-text text-muted" *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern'] || registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">
-            <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
-            <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
-          </small>
-        </div>
-        <div>
-          <label for="Confirmar_Password_Usuario">Confirmar Contraseña</label>
-          <input type="password" formControlName="Confirmar_Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
-          <small class="form-text text-muted" *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">
-            <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
-            <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['minlength'] || registroForm.get('Confirmar_Password_Usuario')?.errors?.['maxlength']">La contraseña debe tener entre 4 y 8 caracteres.</span>
-          </small>
-        </div>
-        <div>
-          <label for="Nombre_Usuario_Cygnus">Nombre de Usuario Cygnus</label>
-          <input type="text" formControlName="Nombre_Usuario_Cygnus" placeholder="Usuario">
-        </div>
-        <button type="submit"  >Registrar</button>
 
-      </form>
+      <div>
+        <label for="Numero_Identificacion_Usuario">Numero de Identificación</label>
+        <input type="number" formControlName="Numero_Identificacion_Usuario" placeholder="123456" pattern="[0-9]+">
+        <div *ngIf="registroForm.get('Numero_Identificacion_Usuario')?.invalid && registroForm.get('Numero_Identificacion_Usuario')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="Nombre_Completo_Usuario">Nombre Completo</label>
+        <input type="text" formControlName="Nombre_Completo_Usuario" placeholder="Nombre y Apellidos">
+        <div *ngIf="registroForm.get('Nombre_Completo_Usuario')?.invalid && registroForm.get('Nombre_Completo_Usuario')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="Correo_Institucional_Usuario" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="Correo_Institucional_Usuario" formControlName="Correo_Institucional_Usuario" placeholder="nombre@uniajc.edu.co"
+               [class.is-invalid]="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
+        <div class="invalid-feedback" *ngIf="registroForm.get('Correo_Institucional_Usuario')?.invalid && registroForm.get('Correo_Institucional_Usuario')?.touched">
+          El correo electrónico no es válido.
+        </div>
+      </div>
+
+      <div>
+        <label for="Numero_Contacto">Numero de Contacto</label>
+        <input type="number" formControlName="Numero_Contacto" placeholder="312 5555555" pattern="[0-9]+">
+        <div *ngIf="registroForm.get('Numero_Contacto')?.invalid && registroForm.get('Numero_Contacto')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="Nombre_Usuario">Nombre de Usuario</label>
+        <input type="text" formControlName="Nombre_Usuario" placeholder="Usuario">
+        <div *ngIf="registroForm.get('Nombre_Usuario')?.invalid && registroForm.get('Nombre_Usuario')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="Password_Usuario">Contraseña</label>
+        <input type="password" formControlName="Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
+        <small class="form-text text-muted" *ngIf="registroForm.get('Password_Usuario')?.errors">
+          <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['pattern']">La contraseña solo puede contener letras y números.</span>
+          <span *ngIf="registroForm.get('Password_Usuario')?.errors?.['minlength'] || registroForm.get('Password_Usuario')?.errors?.['maxlength']">
+            La contraseña debe tener entre 4 y 8 caracteres.
+          </span>
+        </small>
+      </div>
+
+      <div>
+        <label for="Confirmar_Password_Usuario">Confirmar Contraseña</label>
+        <input type="password" formControlName="Confirmar_Password_Usuario" placeholder="Contraseña" minlength="4" maxlength="8">
+        <small class="form-text text-muted" *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors">
+          <span *ngIf="registroForm.get('Confirmar_Password_Usuario')?.errors?.['notSame']">Las contraseñas no coinciden.</span>
+        </small>
+      </div>
+
+      <div>
+        <label for="Nombre_Usuario_Cygnus">Nombre de Usuario Cygnus</label>
+        <input type="text" formControlName="Nombre_Usuario_Cygnus" placeholder="Usuario">
+        <div *ngIf="registroForm.get('Nombre_Usuario_Cygnus')?.invalid && registroForm.get('Nombre_Usuario_Cygnus')?.touched">
+          <small class="form-text text-muted">Este campo es obligatorio.</small>
+        </div>
+      </div>
+
+      <button type="submit">Registrar</button>
+    </form>
   </div>
-  
 </div>

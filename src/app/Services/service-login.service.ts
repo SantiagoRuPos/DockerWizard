@@ -88,4 +88,12 @@ export class ServiceLoginService {
     return this.http.post<any>(`${this.apiUrl}/UpdateProject`, { Estado_Proyecto: Estado_Proyecto, Nombre_Proyecto: Nombre_Proyecto });
 
   }
+  UpdatePassword(Data:{Correo_Institucional_Usuario:any,Password_Usuario:any}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/UpdatePassword`,Data);
+
+  }
+  sendResetPasswordEmail(Data:{Correo_Institucional_Usuario:any}):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/forgotPassword`,Data);
+
+  }
 }
