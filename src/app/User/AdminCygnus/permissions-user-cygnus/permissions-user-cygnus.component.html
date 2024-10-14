@@ -25,7 +25,7 @@
               formControlName="Grupo_Cygnus" 
               placeholder="Grupo" 
               style="width: 100%; padding: 8px;" 
-              maxlength="4" 
+          
               (input)="filterInput($event, 'permiso')"
           >
           <small class="form-text text-muted" *ngIf="UserCygnusForm.get('Grupo_Cygnus')?.errors?.['pattern']" style="color: red;">

@@ -1,9 +1,9 @@
-<div class="container mt-5 main-content">
+<div class="container mt-5 main-content"> 
   <!-- Menu Section -->
   <div class="mb-4">
     <app-menu-auto-docker></app-menu-auto-docker>
   </div>
-<br>
+  <br>
   <!-- Title -->
   <h1 class="mb-4">Contenedores Docker</h1>
 
@@ -22,7 +22,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let container of containers">
+        <tr *ngFor="let container of containers" 
+            [ngClass]="{
+                'table-danger': container.status.toLowerCase().includes('exited'),
+                'table-success': container.status.toLowerCase().includes('up')
+            }">
           <td>{{ container.id }}</td>
           <td>{{ container.image }}</td>
           <td>{{ container.command }}</td>
@@ -47,10 +51,9 @@
       <button class="btn btn-success" (click)="updatedorContainer()">
         <i class="fas fa-arrow-up"></i> Actualización de Servicios
       </button>
-      <button class="btn btn-danger"(click)="RemoveContainer()">
+      <button class="btn btn-danger" (click)="RemoveContainer()">
         <i class="fas fa-trash-alt"></i> Eliminar Docker
-    </button>
-    
+      </button>
       <button class="btn btn-info" (click)="DockerLogs()">
         <i class="bi bi-file-earmark-text"></i> Ver logs
       </button>

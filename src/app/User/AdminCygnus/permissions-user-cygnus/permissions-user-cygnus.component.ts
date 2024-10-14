@@ -16,7 +16,7 @@ export class PermissionsUserCygnusComponent {
   constructor(private formBuilder: FormBuilder, private CygnusService: CygnusService) {
     this.UserCygnusForm = this.formBuilder.group({
       Nombre_Usuario_Cygnus: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]], // Solo letras
-      Grupo_Cygnus: ['', [Validators.required, Validators.pattern('^[0-9]{1,4}$')]] // Solo números, máximo 4 dígitos
+      Grupo_Cygnus: ['', [Validators.required]] // Solo números, máximo 4 dígitos
     });
   }
   
@@ -29,7 +29,7 @@ export class PermissionsUserCygnusComponent {
       inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
     } else if (inputType === 'permiso') {
       // Permitir solo números para permisos
-      inputElement.value = inputElement.value.replace(/[^0-9]/g, '');
+      inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
     }
   
     // Actualiza el valor del formulario

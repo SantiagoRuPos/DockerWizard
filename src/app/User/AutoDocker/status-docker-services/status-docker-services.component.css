@@ -30,3 +30,11 @@
 .main-content {
   margin-top: 100px; /* Adjust this value as needed to push content down */
 }
+.table-danger {
+  background-color: #f8d7da; /* Color de fondo rojo claro */
+  color: #721c24; /* Color del texto rojo oscuro */
+}
+.table-success {
+  background-color: #d4edda; /* Color de fondo verde claro */
+  color: #155724; /* Color del texto verde oscuro */
+}

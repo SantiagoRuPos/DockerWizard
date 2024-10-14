@@ -18,12 +18,20 @@ export class StatusDockerServicesComponent implements OnInit {
   ngOnInit(): void {
     this.consultar();
   }
-
   consultar() {
     this.dockerService.StateContainers().subscribe(
       (data: any) => {
         this.containers = data.containers;
+       
+        // Verificar si hay contenedores en estado "exited"
+        console.log('Estados de los contenedores:', this.containers.map(container => container.status));
 
+        const exitedContainers = this.containers.filter(container => container.status.includes('Exited'));
+        
+        if (exitedContainers.length > 0) {
+         //aqui debe de estar la alerta
+        }
+  
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -35,7 +43,7 @@ export class StatusDockerServicesComponent implements OnInit {
             toast.onmouseleave = Swal.resumeTimer;
           }
         });
-
+  
         Toast.fire({
           icon: 'success',
           title: 'Contenedores de Cygnus Listados'
