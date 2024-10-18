@@ -1,0 +1,30 @@
+{
+  "routes": [
+    "/AdminCygnus",
+    "/AdminDockerwizard",
+    "/AutoDocker",
+    "/BackUpDocker",
+    "/Buscar-Usuarios",
+    "/DockerLogs",
+    "/DockerUp",
+    "/Home",
+    "/ListProjects",
+    "/ListUserCygnus",
+    "/login",
+    "/MonitoringImages",
+    "/MonitorUserCygnus",
+    "/NewDocker",
+    "/NewRoute",
+    "/NewUserCygnus",
+    "/PermissionsUserCygnus",
+    "/ProcessCygnus",
+    "/Registro-nuevo-proyecto",
+    "/registro-nuevo-usuario",
+    "/Reports",
+    "/ResetPassword",
+    "/ResetPasswordCygnus",
+    "/StatusProject",
+    "/StatusServicesDocker",
+    "/StatusUsers"
+  ]
+}
